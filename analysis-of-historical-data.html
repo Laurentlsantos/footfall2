@@ -275,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-18"><a href="analysis-of-historical-data.html#cb47-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
 <span id="cb47-19"><a href="analysis-of-historical-data.html#cb47-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits&quot;</span>),</span>
 <span id="cb47-20"><a href="analysis-of-historical-data.html#cb47-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-20-1.png" width="672" /></p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="analysis-of-historical-data.html#cb48-1"></a>data_monthly &lt;-<span class="st"> </span>data_monthly <span class="op">%&gt;%</span></span>
 <span id="cb48-2"><a href="analysis-of-historical-data.html#cb48-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mm =</span> <span class="kw">fct_relevel</span>(mm, </span>
 <span id="cb48-3"><a href="analysis-of-historical-data.html#cb48-3"></a>                          <span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;Mar&quot;</span>,<span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;Jun&quot;</span>, </span>
@@ -294,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-16"><a href="analysis-of-historical-data.html#cb48-16"></a>       <span class="dt">x=</span><span class="st">&quot;month&quot;</span>, </span>
 <span id="cb48-17"><a href="analysis-of-historical-data.html#cb48-17"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits by month&quot;</span>),</span>
 <span id="cb48-18"><a href="analysis-of-historical-data.html#cb48-18"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="_main_files/unnamed-chunk-21-1.png" width="672" /></p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="analysis-of-historical-data.html#cb49-1"></a>base3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_monthly, <span class="kw">aes</span>(mm, visits, <span class="dt">color =</span> year)) <span class="op">+</span></span>
 <span id="cb49-2"><a href="analysis-of-historical-data.html#cb49-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
 <span id="cb49-3"><a href="analysis-of-historical-data.html#cb49-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">1</span>)<span class="op">+</span></span>
@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb49-11"><a href="analysis-of-historical-data.html#cb49-11"></a>       <span class="dt">x=</span><span class="st">&quot;month&quot;</span>, </span>
 <span id="cb49-12"><a href="analysis-of-historical-data.html#cb49-12"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits by month&quot;</span>),</span>
 <span id="cb49-13"><a href="analysis-of-historical-data.html#cb49-13"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-22-1.png" width="672" /></p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="analysis-of-historical-data.html#cb50-1"></a>data_year &lt;-<span class="st"> </span><span class="kw">select</span>(data_monthly, year, visits) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb50-2"><a href="analysis-of-historical-data.html#cb50-2"></a><span class="st">  </span><span class="kw">filter</span> (year <span class="op">==</span><span class="st"> &quot;2017&quot;</span><span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2018&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2019&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2020&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb50-3"><a href="analysis-of-historical-data.html#cb50-3"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-13"><a href="analysis-of-historical-data.html#cb51-13"></a>       <span class="dt">title=</span><span class="st">&quot;Year-end visits&quot;</span>, </span>
 <span id="cb51-14"><a href="analysis-of-historical-data.html#cb51-14"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insight&quot;</span>) </span>
 <span id="cb51-15"><a href="analysis-of-historical-data.html#cb51-15"></a>g4</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-24-1.png" width="672" /></p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="analysis-of-historical-data.html#cb52-1"></a>data_daily &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/daily_visits.csv&quot;</span>)</span>
 <span id="cb52-2"><a href="analysis-of-historical-data.html#cb52-2"></a></span>
 <span id="cb52-3"><a href="analysis-of-historical-data.html#cb52-3"></a></span>
@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb54-17"><a href="analysis-of-historical-data.html#cb54-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average daily visits&quot;</span>, </span>
 <span id="cb54-18"><a href="analysis-of-historical-data.html#cb54-18"></a>       <span class="dt">x=</span><span class="st">&quot;day&quot;</span>,</span>
 <span id="cb54-19"><a href="analysis-of-historical-data.html#cb54-19"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-25-1.png" width="672" /></p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="analysis-of-historical-data.html#cb55-1"></a>data_daily_avg_year &lt;-<span class="st"> </span>data_daily <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb55-2"><a href="analysis-of-historical-data.html#cb55-2"></a><span class="st">  </span><span class="kw">group_by</span>(wday, year) <span class="op">%&gt;%</span></span>
 <span id="cb55-3"><a href="analysis-of-historical-data.html#cb55-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">visits =</span> <span class="kw">mean</span>(visits)) </span></code></pre></div>
@@ -394,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-9"><a href="analysis-of-historical-data.html#cb57-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average daily visits&quot;</span>, </span>
 <span id="cb57-10"><a href="analysis-of-historical-data.html#cb57-10"></a>       <span class="dt">x=</span><span class="st">&quot;day&quot;</span>,</span>
 <span id="cb57-11"><a href="analysis-of-historical-data.html#cb57-11"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-26-1.png" width="672" /></p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="analysis-of-historical-data.html#cb58-1"></a>g5 &lt;-<span class="st">   </span><span class="kw">ggplot</span>(data_daily, <span class="kw">aes</span>(<span class="dt">x=</span>wday,<span class="dt">y=</span>visits, <span class="dt">fill=</span>wday)) <span class="op">+</span></span>
 <span id="cb58-2"><a href="analysis-of-historical-data.html#cb58-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
 <span id="cb58-3"><a href="analysis-of-historical-data.html#cb58-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="dv">1</span>) <span class="op">+</span></span>
@@ -407,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-10"><a href="analysis-of-historical-data.html#cb58-10"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Ellandi&quot;</span>)</span>
 <span id="cb58-11"><a href="analysis-of-historical-data.html#cb58-11"></a></span>
 <span id="cb58-12"><a href="analysis-of-historical-data.html#cb58-12"></a>g5</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-27-1.png" width="672" /></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="analysis-of-historical-data.html#cb59-1"></a>data_frequency &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_frequency.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb59-2"><a href="analysis-of-historical-data.html#cb59-2"></a></span>
 <span id="cb59-3"><a href="analysis-of-historical-data.html#cb59-3"></a><span class="kw">as_tibble</span>(data_frequency)</span></code></pre></div>
@@ -450,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb61-23"><a href="analysis-of-historical-data.html#cb61-23"></a>       <span class="dt">title=</span><span class="st">&quot;Visit Frequency&quot;</span>, </span>
 <span id="cb61-24"><a href="analysis-of-historical-data.html#cb61-24"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insight&quot;</span>)</span>
 <span id="cb61-25"><a href="analysis-of-historical-data.html#cb61-25"></a>g6</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-28-1.png" width="672" /></p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="analysis-of-historical-data.html#cb62-1"></a>data_segment &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/segment_visits.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb62-2"><a href="analysis-of-historical-data.html#cb62-2"></a></span>
 <span id="cb62-3"><a href="analysis-of-historical-data.html#cb62-3"></a><span class="kw">as_tibble</span>(data_segment)</span></code></pre></div>
@@ -499,7 +499,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb64-20"><a href="analysis-of-historical-data.html#cb64-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
 <span id="cb64-21"><a href="analysis-of-historical-data.html#cb64-21"></a></span>
 <span id="cb64-22"><a href="analysis-of-historical-data.html#cb64-22"></a>g7</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-29-1.png" width="672" /></p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="analysis-of-historical-data.html#cb65-1"></a>data_sector &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_sectors.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb65-2"><a href="analysis-of-historical-data.html#cb65-2"></a></span>
 <span id="cb65-3"><a href="analysis-of-historical-data.html#cb65-3"></a><span class="kw">as_tibble</span>(data_sector)</span></code></pre></div>
@@ -545,7 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb67-26"><a href="analysis-of-historical-data.html#cb67-26"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
 <span id="cb67-27"><a href="analysis-of-historical-data.html#cb67-27"></a></span>
 <span id="cb67-28"><a href="analysis-of-historical-data.html#cb67-28"></a>g8</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-30-1.png" width="672" /></p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="analysis-of-historical-data.html#cb68-1"></a>data_dwell &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_dwell_time.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb68-2"><a href="analysis-of-historical-data.html#cb68-2"></a></span>
 <span id="cb68-3"><a href="analysis-of-historical-data.html#cb68-3"></a></span>
@@ -607,7 +607,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb71-18"><a href="analysis-of-historical-data.html#cb71-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
 <span id="cb71-19"><a href="analysis-of-historical-data.html#cb71-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
 <span id="cb71-20"><a href="analysis-of-historical-data.html#cb71-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-2.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-31-2.png" width="672" /></p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="analysis-of-historical-data.html#cb72-1"></a>g11 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_dwell, <span class="kw">aes</span>(mm, dwell, <span class="dt">color =</span> year)) <span class="op">+</span></span>
 <span id="cb72-2"><a href="analysis-of-historical-data.html#cb72-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma)<span class="op">+</span></span>
 <span id="cb72-3"><a href="analysis-of-historical-data.html#cb72-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">1</span>)<span class="op">+</span></span>
@@ -628,7 +628,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb72-18"><a href="analysis-of-historical-data.html#cb72-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
 <span id="cb72-19"><a href="analysis-of-historical-data.html#cb72-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
 <span id="cb72-20"><a href="analysis-of-historical-data.html#cb72-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-3.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-31-3.png" width="672" /></p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="analysis-of-historical-data.html#cb73-1"></a>data_dwell_avg &lt;-<span class="st"> </span>data_dwell <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb73-2"><a href="analysis-of-historical-data.html#cb73-2"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
 <span id="cb73-3"><a href="analysis-of-historical-data.html#cb73-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">dwell =</span> <span class="kw">mean</span>(dwell)) </span>
@@ -647,7 +647,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb73-16"><a href="analysis-of-historical-data.html#cb73-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average dwell time (mins)&quot;</span>, </span>
 <span id="cb73-17"><a href="analysis-of-historical-data.html#cb73-17"></a>       <span class="dt">x=</span><span class="st">&quot;year&quot;</span>,</span>
 <span id="cb73-18"><a href="analysis-of-historical-data.html#cb73-18"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-4.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-31-4.png" width="672" /></p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="analysis-of-historical-data.html#cb74-1"></a>data_hour &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_hour.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb74-2"><a href="analysis-of-historical-data.html#cb74-2"></a></span>
 <span id="cb74-3"><a href="analysis-of-historical-data.html#cb74-3"></a>data_hour &lt;-<span class="st"> </span>data_hour <span class="op">%&gt;%</span></span>
@@ -680,7 +680,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb76-9"><a href="analysis-of-historical-data.html#cb76-9"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
 <span id="cb76-10"><a href="analysis-of-historical-data.html#cb76-10"></a></span>
 <span id="cb76-11"><a href="analysis-of-historical-data.html#cb76-11"></a><span class="kw">plot</span>(g13)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-32-1.png" width="672" /></p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="analysis-of-historical-data.html#cb77-1"></a><span class="co">## time ranges</span></span>
 <span id="cb77-2"><a href="analysis-of-historical-data.html#cb77-2"></a>morning &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;6&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;7&quot;</span><span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;8&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;9&quot;</span>)</span>
 <span id="cb77-3"><a href="analysis-of-historical-data.html#cb77-3"></a>mid_morning &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;10&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;11&quot;</span>)</span>
@@ -737,7 +737,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-16"><a href="analysis-of-historical-data.html#cb89-16"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
 <span id="cb89-17"><a href="analysis-of-historical-data.html#cb89-17"></a></span>
 <span id="cb89-18"><a href="analysis-of-historical-data.html#cb89-18"></a><span class="kw">plot</span>(g14)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-32-2.png" width="672" /></p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="analysis-of-historical-data.html#cb90-1"></a>data_age &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_age.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb90-2"><a href="analysis-of-historical-data.html#cb90-2"></a></span>
 <span id="cb90-3"><a href="analysis-of-historical-data.html#cb90-3"></a><span class="kw">as_tibble</span>(data_age)</span></code></pre></div>
@@ -793,7 +793,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb92-34"><a href="analysis-of-historical-data.html#cb92-34"></a></span>
 <span id="cb92-35"><a href="analysis-of-historical-data.html#cb92-35"></a>g15 <span class="op">+</span></span>
 <span id="cb92-36"><a href="analysis-of-historical-data.html#cb92-36"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>( <span class="dt">label.hjust =</span> <span class="dv">1</span>, <span class="dt">reverse =</span> <span class="ot">TRUE</span>, <span class="dt">title =</span> <span class="st">&quot;scale&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-33-1.png" width="672" /></p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="analysis-of-historical-data.html#cb93-1"></a>data_stores &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_stores_per_trip.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb93-2"><a href="analysis-of-historical-data.html#cb93-2"></a></span>
 <span id="cb93-3"><a href="analysis-of-historical-data.html#cb93-3"></a>data_stores &lt;-<span class="st"> </span>data_stores <span class="op">%&gt;%</span></span>
@@ -836,7 +836,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb97-15"><a href="analysis-of-historical-data.html#cb97-15"></a>       <span class="dt">x=</span><span class="st">&quot;venues&quot;</span>,</span>
 <span id="cb97-16"><a href="analysis-of-historical-data.html#cb97-16"></a>       <span class="dt">title=</span><span class="st">&quot;Number of indoor locations visited per trip&quot;</span>,</span>
 <span id="cb97-17"><a href="analysis-of-historical-data.html#cb97-17"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-34-1.png" width="672" /></p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="analysis-of-historical-data.html#cb98-1"></a>competition &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/competition.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
 <span id="cb98-2"><a href="analysis-of-historical-data.html#cb98-2"></a></span>
 <span id="cb98-3"><a href="analysis-of-historical-data.html#cb98-3"></a>competition &lt;-<span class="st"> </span>competition <span class="op">%&gt;%</span></span>
@@ -886,7 +886,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb100-20"><a href="analysis-of-historical-data.html#cb100-20"></a>                <span class="dt">DataLabelFillColor =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
 <span id="cb100-21"><a href="analysis-of-historical-data.html#cb100-21"></a></span>
 <span id="cb100-22"><a href="analysis-of-historical-data.html#cb100-22"></a><span class="kw">plot</span>(g2_<span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-35-1.png" width="672" /></p>
 
 <div id="refs" class="references">
 <div>
