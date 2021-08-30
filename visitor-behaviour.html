@@ -248,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-18"><a href="visitor-behaviour.html#cb4-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
 <span id="cb4-19"><a href="visitor-behaviour.html#cb4-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
 <span id="cb4-20"><a href="visitor-behaviour.html#cb4-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-5-1.png" width="672" /></p>
 <p>It could be a good idea to explore seasonality using <em>faceting</em>.</p>
 <p>With <code>facet_wrap()</code> we can make a ribbon of panels with dwell time by year. Note that we can also make available the dwell time value of each point (or month).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visitor-behaviour.html#cb5-1"></a>g11 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_dwell, <span class="kw">aes</span>(mm, dwell, <span class="dt">color =</span> year)) <span class="op">+</span></span>
@@ -273,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-20"><a href="visitor-behaviour.html#cb5-20"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
 <span id="cb5-21"><a href="visitor-behaviour.html#cb5-21"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
 <span id="cb5-22"><a href="visitor-behaviour.html#cb5-22"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Finally, we should calculate the average dwell time by year to understand any change in visitor dwell time.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="visitor-behaviour.html#cb6-1"></a>data_dwell_avg &lt;-<span class="st"> </span>data_dwell <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb6-2"><a href="visitor-behaviour.html#cb6-2"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-18"><a href="visitor-behaviour.html#cb6-18"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average dwell time (mins)&quot;</span>, </span>
 <span id="cb6-19"><a href="visitor-behaviour.html#cb6-19"></a>       <span class="dt">x=</span><span class="st">&quot;year&quot;</span>,</span>
 <span id="cb6-20"><a href="visitor-behaviour.html#cb6-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Note: 2021 as for July</span><span class="ch">\n</span><span class="st">Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-7-1.png" width="672" /></p>
 <p>It can be highlighted from the graph the the average dwell time has been consistently declining since 2018. It is advisable to cross check data to better understand this trend.</p>
 </div>
 <div id="visit-frequency-1" class="section level2">
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-29"><a href="visitor-behaviour.html#cb7-29"></a>g6 <span class="op">+</span></span>
 <span id="cb7-30"><a href="visitor-behaviour.html#cb7-30"></a><span class="st">  </span><span class="kw">theme_gray</span>() <span class="op">+</span></span>
 <span id="cb7-31"><a href="visitor-behaviour.html#cb7-31"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;grey50&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="number-of-indoor-locations-visited-per-trip" class="section level2">
 <h2><span class="header-section-number">3.3</span> Number of indoor locations visited per trip</h2>
@@ -366,7 +366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-15"><a href="visitor-behaviour.html#cb10-15"></a>       <span class="dt">x=</span><span class="st">&quot;venues&quot;</span>,</span>
 <span id="cb10-16"><a href="visitor-behaviour.html#cb10-16"></a>       <span class="dt">title=</span><span class="st">&quot;Number of indoor locations visited per trip&quot;</span>,</span>
 <span id="cb10-17"><a href="visitor-behaviour.html#cb10-17"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-9-1.png" width="672" /></p>
 
 </div>
 </div>
