@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Analysis of Historical Data | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail</title>
+  <meta name="description" content="3 Analysis of Historical Data | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Analysis of Historical Data | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Analysis of Historical Data | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analysis-of-historical-data.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#online-version"><i class="fa fa-check"></i>Online Version</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#human-mobility-analytics"><i class="fa fa-check"></i><b>1.2</b> Human Mobility Analytics</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#location-technologies"><i class="fa fa-check"></i><b>1.3</b> Location Technologies</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#vi-data-infrastructure"><i class="fa fa-check"></i><b>1.4</b> VI Data Infrastructure</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#privacy-compliant-data-collection-and-use"><i class="fa fa-check"></i><b>1.5</b> Privacy-compliant data collection and use</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#representing-and-working-with-data"><i class="fa fa-check"></i><b>1.6</b> Representing and Working with Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="analysis-of-historical-data.html"><a href="analysis-of-historical-data.html"><i class="fa fa-check"></i><b>2</b> Analysis of Historical Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="analysis-of-historical-data.html"><a href="analysis-of-historical-data.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="analysis-of-historical-data.html"><a href="analysis-of-historical-data.html#r-markdown"><i class="fa fa-check"></i><b>2.2</b> R Markdown</a></li>
+<li class="chapter" data-level="2.3" data-path="analysis-of-historical-data.html"><a href="analysis-of-historical-data.html#including-plots"><i class="fa fa-check"></i><b>2.3</b> Including Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analysis-of-historical-data-1.html"><a href="analysis-of-historical-data-1.html"><i class="fa fa-check"></i><b>3</b> Analysis of Historical Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="analysis-of-historical-data-1.html"><a href="analysis-of-historical-data-1.html#introduction-2"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analysis-of-historical-data-1" class="section level1">
+<h1><span class="header-section-number">3</span> Analysis of Historical Data</h1>
+<hr />
+<div id="introduction-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>To set up the experience, first load tha data into the space environement as well as the required packages.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="analysis-of-historical-data-1.html#cb1-1"></a><span class="co"># install if necessary using &#39;install.packages&#39;</span></span>
+<span id="cb1-2"><a href="analysis-of-historical-data-1.html#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="analysis-of-historical-data-1.html#cb1-3"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="analysis-of-historical-data-1.html#cb1-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="analysis-of-historical-data-1.html#cb1-5"></a><span class="kw">library</span>(plotly)</span>
+<span id="cb1-6"><a href="analysis-of-historical-data-1.html#cb1-6"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-7"><a href="analysis-of-historical-data-1.html#cb1-7"></a><span class="kw">library</span>(scales)</span>
+<span id="cb1-8"><a href="analysis-of-historical-data-1.html#cb1-8"></a><span class="kw">library</span>(pipeR)</span>
+<span id="cb1-9"><a href="analysis-of-historical-data-1.html#cb1-9"></a><span class="kw">library</span>(CGPfunctions)</span></code></pre></div>
+<pre><code>## Warning: package &#39;CGPfunctions&#39; was built under R version 4.0.5</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="analysis-of-historical-data-1.html#cb3-1"></a><span class="co"># load the data with read()</span></span>
+<span id="cb3-2"><a href="analysis-of-historical-data-1.html#cb3-2"></a>data_monthly &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/monthly_visits.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="analysis-of-historical-data-1.html#cb4-1"></a>data_monthly &lt;-<span class="st"> </span>data_monthly <span class="op">%&gt;%</span></span>
+<span id="cb4-2"><a href="analysis-of-historical-data-1.html#cb4-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">month =</span> <span class="kw">as.Date</span>(month)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-3"><a href="analysis-of-historical-data-1.html#cb4-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.character</span>(year))</span>
+<span id="cb4-4"><a href="analysis-of-historical-data-1.html#cb4-4"></a></span>
+<span id="cb4-5"><a href="analysis-of-historical-data-1.html#cb4-5"></a><span class="kw">as_tibble</span>(data_monthly)</span></code></pre></div>
+<pre><code>## # A tibble: 54 x 6
+##    name                     month         pid  visits year  mm   
+##    &lt;chr&gt;                    &lt;date&gt;      &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 Training Shopping Centre 2017-01-01 100001 1715887 2017  Jan  
+##  2 Training Shopping Centre 2017-02-01 100001 1606814 2017  Feb  
+##  3 Training Shopping Centre 2017-03-01 100001 1662214 2017  Mar  
+##  4 Training Shopping Centre 2017-04-01 100001 1603849 2017  Apr  
+##  5 Training Shopping Centre 2017-05-01 100001 1769676 2017  May  
+##  6 Training Shopping Centre 2017-06-01 100001 1684730 2017  Jun  
+##  7 Training Shopping Centre 2017-07-01 100001 1894138 2017  Jul  
+##  8 Training Shopping Centre 2017-08-01 100001 1681012 2017  Aug  
+##  9 Training Shopping Centre 2017-09-01 100001 1626082 2017  Sep  
+## 10 Training Shopping Centre 2017-10-01 100001 1609592 2017  Oct  
+## # ... with 44 more rows</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="analysis-of-historical-data-1.html#cb6-1"></a><span class="kw">head</span>(data_monthly)</span></code></pre></div>
+<pre><code>##                       name      month    pid  visits year  mm
+## 1 Training Shopping Centre 2017-01-01 100001 1715887 2017 Jan
+## 2 Training Shopping Centre 2017-02-01 100001 1606814 2017 Feb
+## 3 Training Shopping Centre 2017-03-01 100001 1662214 2017 Mar
+## 4 Training Shopping Centre 2017-04-01 100001 1603849 2017 Apr
+## 5 Training Shopping Centre 2017-05-01 100001 1769676 2017 May
+## 6 Training Shopping Centre 2017-06-01 100001 1684730 2017 Jun</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="analysis-of-historical-data-1.html#cb8-1"></a><span class="kw">summary</span>(data_monthly[<span class="st">&quot;visits&quot;</span>])</span></code></pre></div>
+<pre><code>##      visits       
+##  Min.   : 342593  
+##  1st Qu.:1604309  
+##  Median :1670655  
+##  Mean   :1578285  
+##  3rd Qu.:1737303  
+##  Max.   :2151060</code></pre>
+<p>first grapgh</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="analysis-of-historical-data-1.html#cb10-1"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>data_monthly, <span class="kw">aes</span>(<span class="dt">x=</span>month, <span class="dt">y=</span>visits)) <span class="op">+</span></span>
+<span id="cb10-2"><a href="analysis-of-historical-data-1.html#cb10-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb10-3"><a href="analysis-of-historical-data-1.html#cb10-3"></a><span class="st">  </span><span class="kw">geom_area</span>( <span class="dt">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb10-4"><a href="analysis-of-historical-data-1.html#cb10-4"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color=</span><span class="st">&quot;#69b3a2&quot;</span>) <span class="op">+</span></span>
+<span id="cb10-5"><a href="analysis-of-historical-data-1.html#cb10-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;azure4&quot;</span>) <span class="op">+</span></span>
+<span id="cb10-6"><a href="analysis-of-historical-data-1.html#cb10-6"></a><span class="st">  </span><span class="kw">theme_light</span>() <span class="op">+</span></span>
+<span id="cb10-7"><a href="analysis-of-historical-data-1.html#cb10-7"></a><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">label_date</span>(<span class="st">&quot;%B</span><span class="ch">\n</span><span class="st">%Y&quot;</span>))<span class="op">+</span></span>
+<span id="cb10-8"><a href="analysis-of-historical-data-1.html#cb10-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;total visits&quot;</span>, </span>
+<span id="cb10-9"><a href="analysis-of-historical-data-1.html#cb10-9"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
+<span id="cb10-10"><a href="analysis-of-historical-data-1.html#cb10-10"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits&quot;</span>))</span>
+<span id="cb10-11"><a href="analysis-of-historical-data-1.html#cb10-11"></a></span>
+<span id="cb10-12"><a href="analysis-of-historical-data-1.html#cb10-12"></a><span class="kw">ggplotly</span>(p) </span></code></pre></div>
+<div id="htmlwidget-876bab696748c50a0da6" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-876bab696748c50a0da6">{"x":{"data":[{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383,18414,18444,18475,18506,18536,18567,18597,18628,18659,18687,18718,18748,18779,18779,18779,18748,18718,18687,18659,18628,18597,18567,18536,18506,18475,18444,18414,18383,18353,18322,18293,18262,18231,18201,18170,18140,18109,18078,18048,18017,17987,17956,17928,17897,17866,17836,17805,17775,17744,17713,17683,17652,17622,17591,17563,17532,17501,17471,17440,17410,17379,17348,17318,17287,17257,17226,17198,17167,17167],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1675552,1900854,1682763,932183.4,768692.6,650214.1,2027339,970046.3,1744441,1520945,1755307,1392032,880315.1,459212,342592.9,1171877,1711889,1793054,2126618,1632105,1617888,1653831,1689760,1867891,1676112,1785042,1635897,1697083,1553490,1675617,2140461,1605688,1595413,1627995,1665757,1890274,1708760,1783344,1636038,1702490,1555064,1678991,2151060,1641409,1609592,1626082,1681012,1894138,1684730,1769676,1603849,1662214,1606814,1715887,0],"text":["month: 2017-01-01<br />visits: 1715887.0","month: 2017-02-01<br />visits: 1606814.0","month: 2017-03-01<br />visits: 1662214.0","month: 2017-04-01<br />visits: 1603849.0","month: 2017-05-01<br />visits: 1769676.0","month: 2017-06-01<br />visits: 1684730.0","month: 2017-07-01<br />visits: 1894138.0","month: 2017-08-01<br />visits: 1681012.0","month: 2017-09-01<br />visits: 1626082.0","month: 2017-10-01<br />visits: 1609592.0","month: 2017-11-01<br />visits: 1641409.0","month: 2017-12-01<br />visits: 2151060.0","month: 2018-01-01<br />visits: 1678991.0","month: 2018-02-01<br />visits: 1555064.0","month: 2018-03-01<br />visits: 1702490.0","month: 2018-04-01<br />visits: 1636038.0","month: 2018-05-01<br />visits: 1783344.0","month: 2018-06-01<br />visits: 1708760.0","month: 2018-07-01<br />visits: 1890274.0","month: 2018-08-01<br />visits: 1665757.0","month: 2018-09-01<br />visits: 1627995.0","month: 2018-10-01<br />visits: 1595413.0","month: 2018-11-01<br />visits: 1605688.0","month: 2018-12-01<br />visits: 2140461.0","month: 2019-01-01<br />visits: 1675617.0","month: 2019-02-01<br />visits: 1553490.0","month: 2019-03-01<br />visits: 1697083.0","month: 2019-04-01<br />visits: 1635897.0","month: 2019-05-01<br />visits: 1785042.0","month: 2019-06-01<br />visits: 1676112.0","month: 2019-07-01<br />visits: 1867891.0","month: 2019-08-01<br />visits: 1689760.0","month: 2019-09-01<br />visits: 1653831.0","month: 2019-10-01<br />visits: 1617888.0","month: 2019-11-01<br />visits: 1632105.0","month: 2019-12-01<br />visits: 2126618.0","month: 2020-01-01<br />visits: 1793054.0","month: 2020-02-01<br />visits: 1711889.0","month: 2020-03-01<br />visits: 1171877.0","month: 2020-04-01<br />visits:  342592.9","month: 2020-05-01<br />visits:  459212.0","month: 2020-06-01<br />visits:  880315.1","month: 2020-07-01<br />visits: 1392032.0","month: 2020-08-01<br />visits: 1755307.0","month: 2020-09-01<br />visits: 1520945.0","month: 2020-10-01<br />visits: 1744441.0","month: 2020-11-01<br />visits:  970046.3","month: 2020-12-01<br />visits: 2027339.0","month: 2021-01-01<br />visits:  650214.1","month: 2021-02-01<br />visits:  768692.6","month: 2021-03-01<br />visits:  932183.4","month: 2021-04-01<br />visits: 1682763.0","month: 2021-05-01<br />visits: 1900854.0","month: 2021-06-01<br />visits: 1675552.0","month: 2021-06-01<br />visits: 1675552.0","month: 2021-06-01<br />visits: 1675552.0","month: 2021-05-01<br />visits: 1900854.0","month: 2021-04-01<br />visits: 1682763.0","month: 2021-03-01<br />visits:  932183.4","month: 2021-02-01<br />visits:  768692.6","month: 2021-01-01<br />visits:  650214.1","month: 2020-12-01<br />visits: 2027339.0","month: 2020-11-01<br />visits:  970046.3","month: 2020-10-01<br />visits: 1744441.0","month: 2020-09-01<br />visits: 1520945.0","month: 2020-08-01<br />visits: 1755307.0","month: 2020-07-01<br />visits: 1392032.0","month: 2020-06-01<br />visits:  880315.1","month: 2020-05-01<br />visits:  459212.0","month: 2020-04-01<br />visits:  342592.9","month: 2020-03-01<br />visits: 1171877.0","month: 2020-02-01<br />visits: 1711889.0","month: 2020-01-01<br />visits: 1793054.0","month: 2019-12-01<br />visits: 2126618.0","month: 2019-11-01<br />visits: 1632105.0","month: 2019-10-01<br />visits: 1617888.0","month: 2019-09-01<br />visits: 1653831.0","month: 2019-08-01<br />visits: 1689760.0","month: 2019-07-01<br />visits: 1867891.0","month: 2019-06-01<br />visits: 1676112.0","month: 2019-05-01<br />visits: 1785042.0","month: 2019-04-01<br />visits: 1635897.0","month: 2019-03-01<br />visits: 1697083.0","month: 2019-02-01<br />visits: 1553490.0","month: 2019-01-01<br />visits: 1675617.0","month: 2018-12-01<br />visits: 2140461.0","month: 2018-11-01<br />visits: 1605688.0","month: 2018-10-01<br />visits: 1595413.0","month: 2018-09-01<br />visits: 1627995.0","month: 2018-08-01<br />visits: 1665757.0","month: 2018-07-01<br />visits: 1890274.0","month: 2018-06-01<br />visits: 1708760.0","month: 2018-05-01<br />visits: 1783344.0","month: 2018-04-01<br />visits: 1636038.0","month: 2018-03-01<br />visits: 1702490.0","month: 2018-02-01<br />visits: 1555064.0","month: 2018-01-01<br />visits: 1678991.0","month: 2017-12-01<br />visits: 2151060.0","month: 2017-11-01<br />visits: 1641409.0","month: 2017-10-01<br />visits: 1609592.0","month: 2017-09-01<br />visits: 1626082.0","month: 2017-08-01<br />visits: 1681012.0","month: 2017-07-01<br />visits: 1894138.0","month: 2017-06-01<br />visits: 1684730.0","month: 2017-05-01<br />visits: 1769676.0","month: 2017-04-01<br />visits: 1603849.0","month: 2017-03-01<br />visits: 1662214.0","month: 2017-02-01<br />visits: 1606814.0","month: 2017-01-01<br />visits: 1715887.0","month: 2017-01-01<br />visits: 1715887.0"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(105,179,162,0.4)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383,18414,18444,18475,18506,18536,18567,18597,18628,18659,18687,18718,18748,18779],"y":[1715887,1606814,1662214,1603849,1769676,1684730,1894138,1681012,1626082,1609592,1641409,2151060,1678991,1555064,1702490,1636038,1783344,1708760,1890274,1665757,1627995,1595413,1605688,2140461,1675617,1553490,1697083,1635897,1785042,1676112,1867891,1689760,1653831,1617888,1632105,2126618,1793054,1711889,1171877,342592.9,459212,880315.1,1392032,1755307,1520945,1744441,970046.3,2027339,650214.1,768692.6,932183.4,1682763,1900854,1675552],"text":["month: 2017-01-01<br />visits: 1715887.0","month: 2017-02-01<br />visits: 1606814.0","month: 2017-03-01<br />visits: 1662214.0","month: 2017-04-01<br />visits: 1603849.0","month: 2017-05-01<br />visits: 1769676.0","month: 2017-06-01<br />visits: 1684730.0","month: 2017-07-01<br />visits: 1894138.0","month: 2017-08-01<br />visits: 1681012.0","month: 2017-09-01<br />visits: 1626082.0","month: 2017-10-01<br />visits: 1609592.0","month: 2017-11-01<br />visits: 1641409.0","month: 2017-12-01<br />visits: 2151060.0","month: 2018-01-01<br />visits: 1678991.0","month: 2018-02-01<br />visits: 1555064.0","month: 2018-03-01<br />visits: 1702490.0","month: 2018-04-01<br />visits: 1636038.0","month: 2018-05-01<br />visits: 1783344.0","month: 2018-06-01<br />visits: 1708760.0","month: 2018-07-01<br />visits: 1890274.0","month: 2018-08-01<br />visits: 1665757.0","month: 2018-09-01<br />visits: 1627995.0","month: 2018-10-01<br />visits: 1595413.0","month: 2018-11-01<br />visits: 1605688.0","month: 2018-12-01<br />visits: 2140461.0","month: 2019-01-01<br />visits: 1675617.0","month: 2019-02-01<br />visits: 1553490.0","month: 2019-03-01<br />visits: 1697083.0","month: 2019-04-01<br />visits: 1635897.0","month: 2019-05-01<br />visits: 1785042.0","month: 2019-06-01<br />visits: 1676112.0","month: 2019-07-01<br />visits: 1867891.0","month: 2019-08-01<br />visits: 1689760.0","month: 2019-09-01<br />visits: 1653831.0","month: 2019-10-01<br />visits: 1617888.0","month: 2019-11-01<br />visits: 1632105.0","month: 2019-12-01<br />visits: 2126618.0","month: 2020-01-01<br />visits: 1793054.0","month: 2020-02-01<br />visits: 1711889.0","month: 2020-03-01<br />visits: 1171877.0","month: 2020-04-01<br />visits:  342592.9","month: 2020-05-01<br />visits:  459212.0","month: 2020-06-01<br />visits:  880315.1","month: 2020-07-01<br />visits: 1392032.0","month: 2020-08-01<br />visits: 1755307.0","month: 2020-09-01<br />visits: 1520945.0","month: 2020-10-01<br />visits: 1744441.0","month: 2020-11-01<br />visits:  970046.3","month: 2020-12-01<br />visits: 2027339.0","month: 2021-01-01<br />visits:  650214.1","month: 2021-02-01<br />visits:  768692.6","month: 2021-03-01<br />visits:  932183.4","month: 2021-04-01<br />visits: 1682763.0","month: 2021-05-01<br />visits: 1900854.0","month: 2021-06-01<br />visits: 1675552.0"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(105,179,162,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(131,139,139,1)","opacity":1,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(131,139,139,1)"}},"frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":78.1735159817352},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Total visits","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17086.4,18859.6],"tickmode":"array","ticktext":["January<br />2017","January<br />2018","January<br />2019","January<br />2020","January<br />2021"],"tickvals":[17167,17532,17897,18262,18628],"categoryorder":"array","categoryarray":["January<br />2017","January<br />2018","January<br />2019","January<br />2020","January<br />2021"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-107553,2258613],"tickmode":"array","ticktext":["0","500,000","1,000,000","1,500,000","2,000,000"],"tickvals":[0,500000,1000000,1500000,2000000],"categoryorder":"array","categoryarray":["0","500,000","1,000,000","1,500,000","2,000,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"total visits","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"4948776e75ce":{"x":{},"y":{},"type":"scatter"},"4948714b4c6b":{"x":{},"y":{}},"49484aab42d4":{"x":{},"y":{}}},"cur_data":"4948776e75ce","visdat":{"4948776e75ce":["function (y) ","x"],"4948714b4c6b":["function (y) ","x"],"49484aab42d4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="section" class="section level6">
+<h6><span class="header-section-number">3.1.0.0.0.1</span> </h6>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="analysis-of-historical-data-1.html#cb11-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_monthly, <span class="kw">aes</span>(month, visits)) <span class="op">+</span></span>
+<span id="cb11-2"><a href="analysis-of-historical-data-1.html#cb11-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma)<span class="op">+</span></span>
+<span id="cb11-3"><a href="analysis-of-historical-data-1.html#cb11-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span> ,</span>
+<span id="cb11-4"><a href="analysis-of-historical-data-1.html#cb11-4"></a>             <span class="dt">size =</span> <span class="dv">3</span>, </span>
+<span id="cb11-5"><a href="analysis-of-historical-data-1.html#cb11-5"></a>             <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)<span class="op">+</span></span>
+<span id="cb11-6"><a href="analysis-of-historical-data-1.html#cb11-6"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">na.rm =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb11-7"><a href="analysis-of-historical-data-1.html#cb11-7"></a>            <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>)<span class="op">+</span></span>
+<span id="cb11-8"><a href="analysis-of-historical-data-1.html#cb11-8"></a><span class="st">  </span><span class="kw">annotate</span>(</span>
+<span id="cb11-9"><a href="analysis-of-historical-data-1.html#cb11-9"></a>    <span class="dt">geom =</span> <span class="st">&quot;segment&quot;</span>, <span class="dt">x =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-23&quot;</span>), <span class="dt">y =</span> <span class="dv">2000000</span>, <span class="dt">xend =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-23&quot;</span>), <span class="dt">yend =</span> <span class="dv">1800000</span>, </span>
+<span id="cb11-10"><a href="analysis-of-historical-data-1.html#cb11-10"></a>    <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</span>
+<span id="cb11-11"><a href="analysis-of-historical-data-1.html#cb11-11"></a>  ) <span class="op">+</span></span>
+<span id="cb11-12"><a href="analysis-of-historical-data-1.html#cb11-12"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-12&quot;</span>), <span class="dt">y =</span> <span class="dv">2150000</span>,  <span class="dt">label =</span> <span class="st">&quot;lockdown</span><span class="ch">\n</span><span class="st">23 March 2020&quot;</span>, <span class="dt">hjust =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb11-13"><a href="analysis-of-historical-data-1.html#cb11-13"></a></span>
+<span id="cb11-14"><a href="analysis-of-historical-data-1.html#cb11-14"></a></span>
+<span id="cb11-15"><a href="analysis-of-historical-data-1.html#cb11-15"></a>base <span class="op">+</span></span>
+<span id="cb11-16"><a href="analysis-of-historical-data-1.html#cb11-16"></a><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">label_date</span>(<span class="st">&quot;%B</span><span class="ch">\n</span><span class="st">%Y&quot;</span>))<span class="op">+</span></span>
+<span id="cb11-17"><a href="analysis-of-historical-data-1.html#cb11-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;total visits&quot;</span>, </span>
+<span id="cb11-18"><a href="analysis-of-historical-data-1.html#cb11-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
+<span id="cb11-19"><a href="analysis-of-historical-data-1.html#cb11-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits&quot;</span>),</span>
+<span id="cb11-20"><a href="analysis-of-historical-data-1.html#cb11-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="analysis-of-historical-data-1.html#cb12-1"></a>data_monthly &lt;-<span class="st"> </span>data_monthly <span class="op">%&gt;%</span></span>
+<span id="cb12-2"><a href="analysis-of-historical-data-1.html#cb12-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mm =</span> <span class="kw">fct_relevel</span>(mm, </span>
+<span id="cb12-3"><a href="analysis-of-historical-data-1.html#cb12-3"></a>                          <span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;Mar&quot;</span>,<span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;Jun&quot;</span>, </span>
+<span id="cb12-4"><a href="analysis-of-historical-data-1.html#cb12-4"></a>                          <span class="st">&quot;Jul&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sep&quot;</span>, <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>)) </span>
+<span id="cb12-5"><a href="analysis-of-historical-data-1.html#cb12-5"></a></span>
+<span id="cb12-6"><a href="analysis-of-historical-data-1.html#cb12-6"></a></span>
+<span id="cb12-7"><a href="analysis-of-historical-data-1.html#cb12-7"></a>base2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_monthly, <span class="kw">aes</span>(mm, visits, <span class="dt">color =</span> year)) <span class="op">+</span></span>
+<span id="cb12-8"><a href="analysis-of-historical-data-1.html#cb12-8"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma)<span class="op">+</span></span>
+<span id="cb12-9"><a href="analysis-of-historical-data-1.html#cb12-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">1</span>)<span class="op">+</span></span>
+<span id="cb12-10"><a href="analysis-of-historical-data-1.html#cb12-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">3</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb12-11"><a href="analysis-of-historical-data-1.html#cb12-11"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="st">&#39;Program Type&#39;</span>)</span>
+<span id="cb12-12"><a href="analysis-of-historical-data-1.html#cb12-12"></a></span>
+<span id="cb12-13"><a href="analysis-of-historical-data-1.html#cb12-13"></a>base2 <span class="op">+</span></span>
+<span id="cb12-14"><a href="analysis-of-historical-data-1.html#cb12-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb12-15"><a href="analysis-of-historical-data-1.html#cb12-15"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;total visits&quot;</span>, </span>
+<span id="cb12-16"><a href="analysis-of-historical-data-1.html#cb12-16"></a>       <span class="dt">x=</span><span class="st">&quot;month&quot;</span>, </span>
+<span id="cb12-17"><a href="analysis-of-historical-data-1.html#cb12-17"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits by month&quot;</span>),</span>
+<span id="cb12-18"><a href="analysis-of-historical-data-1.html#cb12-18"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="analysis-of-historical-data-1.html#cb13-1"></a>base3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_monthly, <span class="kw">aes</span>(mm, visits, <span class="dt">color =</span> year)) <span class="op">+</span></span>
+<span id="cb13-2"><a href="analysis-of-historical-data-1.html#cb13-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb13-3"><a href="analysis-of-historical-data-1.html#cb13-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">1</span>)<span class="op">+</span></span>
+<span id="cb13-4"><a href="analysis-of-historical-data-1.html#cb13-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">3</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-5"><a href="analysis-of-historical-data-1.html#cb13-5"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="st">&#39;Program Type&#39;</span>)<span class="op">+</span></span>
+<span id="cb13-6"><a href="analysis-of-historical-data-1.html#cb13-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year,<span class="dt">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb13-7"><a href="analysis-of-historical-data-1.html#cb13-7"></a></span>
+<span id="cb13-8"><a href="analysis-of-historical-data-1.html#cb13-8"></a>base3 <span class="op">+</span></span>
+<span id="cb13-9"><a href="analysis-of-historical-data-1.html#cb13-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="dt">legend.justification =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb13-10"><a href="analysis-of-historical-data-1.html#cb13-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;total visits&quot;</span>, </span>
+<span id="cb13-11"><a href="analysis-of-historical-data-1.html#cb13-11"></a>       <span class="dt">x=</span><span class="st">&quot;month&quot;</span>, </span>
+<span id="cb13-12"><a href="analysis-of-historical-data-1.html#cb13-12"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Total visits by month&quot;</span>),</span>
+<span id="cb13-13"><a href="analysis-of-historical-data-1.html#cb13-13"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="analysis-of-historical-data-1.html#cb14-1"></a>data_year &lt;-<span class="st"> </span><span class="kw">select</span>(data_monthly, year, visits) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-2"><a href="analysis-of-historical-data-1.html#cb14-2"></a><span class="st">  </span><span class="kw">filter</span> (year <span class="op">==</span><span class="st"> &quot;2017&quot;</span><span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2018&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2019&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2020&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-3"><a href="analysis-of-historical-data-1.html#cb14-3"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
+<span id="cb14-4"><a href="analysis-of-historical-data-1.html#cb14-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">visits =</span>  <span class="kw">sum</span>(visits))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="analysis-of-historical-data-1.html#cb15-1"></a>g4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_year, <span class="kw">aes</span>(year, visits)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb15-2"><a href="analysis-of-historical-data-1.html#cb15-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-3"><a href="analysis-of-historical-data-1.html#cb15-3"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> <span class="kw">comma_format</span>(), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">22000000</span>)) <span class="op">+</span></span>
+<span id="cb15-4"><a href="analysis-of-historical-data-1.html#cb15-4"></a><span class="st">  </span><span class="kw">theme_grey</span>()  <span class="op">+</span></span>
+<span id="cb15-5"><a href="analysis-of-historical-data-1.html#cb15-5"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;gray41&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-6"><a href="analysis-of-historical-data-1.html#cb15-6"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">y =</span> visits, <span class="dt">label =</span> scales<span class="op">::</span><span class="kw">comma</span>(<span class="kw">round</span>(visits), <span class="dt">accuracy=</span><span class="dv">1</span>)),</span>
+<span id="cb15-7"><a href="analysis-of-historical-data-1.html#cb15-7"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb15-8"><a href="analysis-of-historical-data-1.html#cb15-8"></a>            <span class="dt">size =</span> <span class="dv">5</span>,</span>
+<span id="cb15-9"><a href="analysis-of-historical-data-1.html#cb15-9"></a>            <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb15-10"><a href="analysis-of-historical-data-1.html#cb15-10"></a>            <span class="dt">vjust =</span> <span class="fl">-1.0</span>) <span class="op">+</span></span>
+<span id="cb15-11"><a href="analysis-of-historical-data-1.html#cb15-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;total visits&quot;</span>, </span>
+<span id="cb15-12"><a href="analysis-of-historical-data-1.html#cb15-12"></a>       <span class="dt">x=</span><span class="st">&quot;year&quot;</span>, </span>
+<span id="cb15-13"><a href="analysis-of-historical-data-1.html#cb15-13"></a>       <span class="dt">title=</span><span class="st">&quot;Year-end visits&quot;</span>, </span>
+<span id="cb15-14"><a href="analysis-of-historical-data-1.html#cb15-14"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insight&quot;</span>) </span>
+<span id="cb15-15"><a href="analysis-of-historical-data-1.html#cb15-15"></a>g4</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="analysis-of-historical-data-1.html#cb16-1"></a>data_daily &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/daily_visits.csv&quot;</span>)</span>
+<span id="cb16-2"><a href="analysis-of-historical-data-1.html#cb16-2"></a></span>
+<span id="cb16-3"><a href="analysis-of-historical-data-1.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="analysis-of-historical-data-1.html#cb16-4"></a>data_daily &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_daily,</span>
+<span id="cb16-5"><a href="analysis-of-historical-data-1.html#cb16-5"></a>                     <span class="dt">date =</span><span class="kw">as.Date</span>(day, <span class="dt">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>))</span>
+<span id="cb16-6"><a href="analysis-of-historical-data-1.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="analysis-of-historical-data-1.html#cb16-7"></a></span>
+<span id="cb16-8"><a href="analysis-of-historical-data-1.html#cb16-8"></a>data_daily &lt;-<span class="st"> </span><span class="kw">mutate</span> (data_daily,</span>
+<span id="cb16-9"><a href="analysis-of-historical-data-1.html#cb16-9"></a>                      <span class="dt">wday =</span> <span class="kw">wday</span>(date, <span class="dt">label =</span> <span class="ot">TRUE</span>), </span>
+<span id="cb16-10"><a href="analysis-of-historical-data-1.html#cb16-10"></a>                      <span class="dt">week =</span> <span class="kw">week</span> (date), </span>
+<span id="cb16-11"><a href="analysis-of-historical-data-1.html#cb16-11"></a>                      <span class="dt">year =</span> <span class="kw">year</span> (date),</span>
+<span id="cb16-12"><a href="analysis-of-historical-data-1.html#cb16-12"></a>                      <span class="dt">month =</span> <span class="kw">month</span> (date), </span>
+<span id="cb16-13"><a href="analysis-of-historical-data-1.html#cb16-13"></a>                      <span class="dt">hour =</span> <span class="kw">hour</span> (date))</span>
+<span id="cb16-14"><a href="analysis-of-historical-data-1.html#cb16-14"></a></span>
+<span id="cb16-15"><a href="analysis-of-historical-data-1.html#cb16-15"></a></span>
+<span id="cb16-16"><a href="analysis-of-historical-data-1.html#cb16-16"></a><span class="kw">as_tibble</span>(data_daily)</span></code></pre></div>
+<pre><code>## # A tibble: 1,582 x 13
+##       PID postcode asset  name   day   visits    mm  year month date       wday 
+##     &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;ord&gt;
+##  1 374342 DY5 1QX  Merry~ Merry~ 01/0~ 48250.     3  2017     3 2017-03-01 Wed  
+##  2 374342 DY5 1QX  Merry~ Merry~ 02/0~ 53097.     3  2017     3 2017-03-02 Thu  
+##  3 374342 DY5 1QX  Merry~ Merry~ 03/0~ 60116.     3  2017     3 2017-03-03 Fri  
+##  4 374342 DY5 1QX  Merry~ Merry~ 04/0~ 71824.     3  2017     3 2017-03-04 Sat  
+##  5 374342 DY5 1QX  Merry~ Merry~ 05/0~ 55379.     3  2017     3 2017-03-05 Sun  
+##  6 374342 DY5 1QX  Merry~ Merry~ 06/0~ 47432.     3  2017     3 2017-03-06 Mon  
+##  7 374342 DY5 1QX  Merry~ Merry~ 07/0~ 47754.     3  2017     3 2017-03-07 Tue  
+##  8 374342 DY5 1QX  Merry~ Merry~ 08/0~ 48904.     3  2017     3 2017-03-08 Wed  
+##  9 374342 DY5 1QX  Merry~ Merry~ 09/0~ 50120.     3  2017     3 2017-03-09 Thu  
+## 10 374342 DY5 1QX  Merry~ Merry~ 10/0~ 58124.     3  2017     3 2017-03-10 Fri  
+## # ... with 1,572 more rows, and 2 more variables: week &lt;dbl&gt;, hour &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="analysis-of-historical-data-1.html#cb18-1"></a>data_daily &lt;-<span class="st"> </span>data_daily <span class="op">%&gt;%</span></span>
+<span id="cb18-2"><a href="analysis-of-historical-data-1.html#cb18-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">wday =</span> <span class="kw">fct_relevel</span>(wday, </span>
+<span id="cb18-3"><a href="analysis-of-historical-data-1.html#cb18-3"></a>                            <span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tue&quot;</span>, <span class="st">&quot;Wed&quot;</span>,<span class="st">&quot;Thu&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, </span>
+<span id="cb18-4"><a href="analysis-of-historical-data-1.html#cb18-4"></a>                            <span class="st">&quot;Sun&quot;</span>)) </span>
+<span id="cb18-5"><a href="analysis-of-historical-data-1.html#cb18-5"></a></span>
+<span id="cb18-6"><a href="analysis-of-historical-data-1.html#cb18-6"></a>data_daily_avg &lt;-<span class="st"> </span>data_daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-7"><a href="analysis-of-historical-data-1.html#cb18-7"></a><span class="st">  </span><span class="kw">group_by</span>(wday) <span class="op">%&gt;%</span></span>
+<span id="cb18-8"><a href="analysis-of-historical-data-1.html#cb18-8"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">visits =</span> <span class="kw">mean</span>(visits)) </span>
+<span id="cb18-9"><a href="analysis-of-historical-data-1.html#cb18-9"></a></span>
+<span id="cb18-10"><a href="analysis-of-historical-data-1.html#cb18-10"></a></span>
+<span id="cb18-11"><a href="analysis-of-historical-data-1.html#cb18-11"></a>g4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_daily_avg, <span class="kw">aes</span>(<span class="dt">x =</span> wday, <span class="dt">y =</span> visits)) <span class="op">+</span></span>
+<span id="cb18-12"><a href="analysis-of-historical-data-1.html#cb18-12"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;cyan4&quot;</span>) <span class="op">+</span></span>
+<span id="cb18-13"><a href="analysis-of-historical-data-1.html#cb18-13"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb18-14"><a href="analysis-of-historical-data-1.html#cb18-14"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(visits, <span class="dv">0</span>)), <span class="dt">vjust =</span> <span class="fl">-0.2</span>) </span>
+<span id="cb18-15"><a href="analysis-of-historical-data-1.html#cb18-15"></a></span>
+<span id="cb18-16"><a href="analysis-of-historical-data-1.html#cb18-16"></a>g4 <span class="op">+</span></span>
+<span id="cb18-17"><a href="analysis-of-historical-data-1.html#cb18-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average daily visits&quot;</span>, </span>
+<span id="cb18-18"><a href="analysis-of-historical-data-1.html#cb18-18"></a>       <span class="dt">x=</span><span class="st">&quot;day&quot;</span>,</span>
+<span id="cb18-19"><a href="analysis-of-historical-data-1.html#cb18-19"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="analysis-of-historical-data-1.html#cb19-1"></a>data_daily_avg_year &lt;-<span class="st"> </span>data_daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-2"><a href="analysis-of-historical-data-1.html#cb19-2"></a><span class="st">  </span><span class="kw">group_by</span>(wday, year) <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="analysis-of-historical-data-1.html#cb19-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">visits =</span> <span class="kw">mean</span>(visits)) </span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;wday&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="analysis-of-historical-data-1.html#cb21-1"></a>g5 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_daily_avg_year, <span class="kw">aes</span>(<span class="dt">x =</span> wday, <span class="dt">y =</span> visits)) <span class="op">+</span></span>
+<span id="cb21-2"><a href="analysis-of-historical-data-1.html#cb21-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;cyan4&quot;</span>)<span class="op">+</span></span>
+<span id="cb21-3"><a href="analysis-of-historical-data-1.html#cb21-3"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb21-4"><a href="analysis-of-historical-data-1.html#cb21-4"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(visits, <span class="dv">0</span>)), <span class="dt">vjust =</span> <span class="fl">-0.2</span>, <span class="dt">size =</span> <span class="fl">2.5</span>) <span class="op">+</span></span>
+<span id="cb21-5"><a href="analysis-of-historical-data-1.html#cb21-5"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year)</span>
+<span id="cb21-6"><a href="analysis-of-historical-data-1.html#cb21-6"></a></span>
+<span id="cb21-7"><a href="analysis-of-historical-data-1.html#cb21-7"></a></span>
+<span id="cb21-8"><a href="analysis-of-historical-data-1.html#cb21-8"></a>g5 <span class="op">+</span></span>
+<span id="cb21-9"><a href="analysis-of-historical-data-1.html#cb21-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average daily visits&quot;</span>, </span>
+<span id="cb21-10"><a href="analysis-of-historical-data-1.html#cb21-10"></a>       <span class="dt">x=</span><span class="st">&quot;day&quot;</span>,</span>
+<span id="cb21-11"><a href="analysis-of-historical-data-1.html#cb21-11"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="analysis-of-historical-data-1.html#cb22-1"></a>g5 &lt;-<span class="st">   </span><span class="kw">ggplot</span>(data_daily, <span class="kw">aes</span>(<span class="dt">x=</span>wday,<span class="dt">y=</span>visits, <span class="dt">fill=</span>wday)) <span class="op">+</span></span>
+<span id="cb22-2"><a href="analysis-of-historical-data-1.html#cb22-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb22-3"><a href="analysis-of-historical-data-1.html#cb22-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb22-4"><a href="analysis-of-historical-data-1.html#cb22-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year) <span class="op">+</span></span>
+<span id="cb22-5"><a href="analysis-of-historical-data-1.html#cb22-5"></a><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">150000</span>)) <span class="op">+</span></span>
+<span id="cb22-6"><a href="analysis-of-historical-data-1.html#cb22-6"></a><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom=</span><span class="st">&quot;point&quot;</span>, <span class="dt">shape=</span><span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>)<span class="op">+</span></span>
+<span id="cb22-7"><a href="analysis-of-historical-data-1.html#cb22-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;daily visits&quot;</span>, </span>
+<span id="cb22-8"><a href="analysis-of-historical-data-1.html#cb22-8"></a>       <span class="dt">x=</span><span class="st">&quot;day&quot;</span>, </span>
+<span id="cb22-9"><a href="analysis-of-historical-data-1.html#cb22-9"></a>       <span class="dt">title=</span><span class="st">&quot;Visits by day&quot;</span>, </span>
+<span id="cb22-10"><a href="analysis-of-historical-data-1.html#cb22-10"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Ellandi&quot;</span>)</span>
+<span id="cb22-11"><a href="analysis-of-historical-data-1.html#cb22-11"></a></span>
+<span id="cb22-12"><a href="analysis-of-historical-data-1.html#cb22-12"></a>g5</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="analysis-of-historical-data-1.html#cb23-1"></a>data_frequency &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_frequency.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb23-2"><a href="analysis-of-historical-data-1.html#cb23-2"></a></span>
+<span id="cb23-3"><a href="analysis-of-historical-data-1.html#cb23-3"></a><span class="kw">as_tibble</span>(data_frequency)</span></code></pre></div>
+<pre><code>## # A tibble: 25 x 5
+##       pid name                     frequency      pct  year
+##     &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;
+##  1 374342 Training Shopping Centre weekly      0.0347  2017
+##  2 374342 Training Shopping Centre half yearly 0.233   2017
+##  3 374342 Training Shopping Centre quarterly   0.232   2017
+##  4 374342 Training Shopping Centre monthly     0.128   2017
+##  5 374342 Training Shopping Centre anually     0.248   2017
+##  6 374342 Training Shopping Centre monthly     0.0661  2018
+##  7 374342 Training Shopping Centre anually     0.281   2018
+##  8 374342 Training Shopping Centre weekly      0.0138  2018
+##  9 374342 Training Shopping Centre half yearly 0.192   2018
+## 10 374342 Training Shopping Centre quarterly   0.167   2018
+## # ... with 15 more rows</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="analysis-of-historical-data-1.html#cb25-1"></a><span class="co"># then ordering the frequencies</span></span>
+<span id="cb25-2"><a href="analysis-of-historical-data-1.html#cb25-2"></a>data_frequency &lt;-<span class="st"> </span>data_frequency <span class="op">%&gt;%</span></span>
+<span id="cb25-3"><a href="analysis-of-historical-data-1.html#cb25-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">frequency =</span> <span class="kw">fct_relevel</span>(frequency, </span>
+<span id="cb25-4"><a href="analysis-of-historical-data-1.html#cb25-4"></a>                                 <span class="st">&quot;anually&quot;</span>, <span class="st">&quot;half yearly&quot;</span>, <span class="st">&quot;quarterly&quot;</span>, </span>
+<span id="cb25-5"><a href="analysis-of-historical-data-1.html#cb25-5"></a>                                 <span class="st">&quot;monthly&quot;</span>, <span class="st">&quot;weekly&quot;</span>))  </span>
+<span id="cb25-6"><a href="analysis-of-historical-data-1.html#cb25-6"></a></span>
+<span id="cb25-7"><a href="analysis-of-historical-data-1.html#cb25-7"></a></span>
+<span id="cb25-8"><a href="analysis-of-historical-data-1.html#cb25-8"></a>g6 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_frequency, <span class="kw">aes</span>(<span class="dt">fill=</span> frequency, <span class="dt">y=</span> pct,  <span class="dt">x=</span> year)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb25-9"><a href="analysis-of-historical-data-1.html#cb25-9"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkcyan&quot;</span>) <span class="op">+</span></span>
+<span id="cb25-10"><a href="analysis-of-historical-data-1.html#cb25-10"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>((pct),.<span class="dv">2</span>),</span>
+<span id="cb25-11"><a href="analysis-of-historical-data-1.html#cb25-11"></a>                <span class="dt">y =</span> pct, </span>
+<span id="cb25-12"><a href="analysis-of-historical-data-1.html#cb25-12"></a>                <span class="dt">group =</span> year,),</span>
+<span id="cb25-13"><a href="analysis-of-historical-data-1.html#cb25-13"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb25-14"><a href="analysis-of-historical-data-1.html#cb25-14"></a>            <span class="dt">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb25-15"><a href="analysis-of-historical-data-1.html#cb25-15"></a>            <span class="dt">colour=</span><span class="st">&quot;white&quot;</span>,</span>
+<span id="cb25-16"><a href="analysis-of-historical-data-1.html#cb25-16"></a>            <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb25-17"><a href="analysis-of-historical-data-1.html#cb25-17"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>frequency) <span class="op">+</span></span>
+<span id="cb25-18"><a href="analysis-of-historical-data-1.html#cb25-18"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb25-19"><a href="analysis-of-historical-data-1.html#cb25-19"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent) <span class="op">+</span></span>
+<span id="cb25-20"><a href="analysis-of-historical-data-1.html#cb25-20"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>)<span class="op">+</span></span>
+<span id="cb25-21"><a href="analysis-of-historical-data-1.html#cb25-21"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;perc&quot;</span>, </span>
+<span id="cb25-22"><a href="analysis-of-historical-data-1.html#cb25-22"></a>       <span class="dt">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb25-23"><a href="analysis-of-historical-data-1.html#cb25-23"></a>       <span class="dt">title=</span><span class="st">&quot;Visit Frequency&quot;</span>, </span>
+<span id="cb25-24"><a href="analysis-of-historical-data-1.html#cb25-24"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insight&quot;</span>)</span>
+<span id="cb25-25"><a href="analysis-of-historical-data-1.html#cb25-25"></a>g6</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="analysis-of-historical-data-1.html#cb26-1"></a>data_segment &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/segment_visits.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb26-2"><a href="analysis-of-historical-data-1.html#cb26-2"></a></span>
+<span id="cb26-3"><a href="analysis-of-historical-data-1.html#cb26-3"></a><span class="kw">as_tibble</span>(data_segment)</span></code></pre></div>
+<pre><code>## # A tibble: 20 x 6
+##       pid name                     segment  total_visits  year      pct
+##     &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;           &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;
+##  1 100001 Training Shopping Centre national      1908882  2017 0.870   
+##  2 100001 Training Shopping Centre overseas         4914  2017 0.00224 
+##  3 100001 Training Shopping Centre resident       226636  2017 0.103   
+##  4 100001 Training Shopping Centre worker          54830  2017 0.0250  
+##  5 100001 Training Shopping Centre national      1845286  2018 0.845   
+##  6 100001 Training Shopping Centre overseas        11002  2018 0.00504 
+##  7 100001 Training Shopping Centre resident       254538  2018 0.117   
+##  8 100001 Training Shopping Centre worker          72074  2018 0.0330  
+##  9 100001 Training Shopping Centre national      1770510  2019 0.815   
+## 10 100001 Training Shopping Centre overseas         1247  2019 0.000574
+## 11 100001 Training Shopping Centre resident       261872  2019 0.121   
+## 12 100001 Training Shopping Centre worker         138101  2019 0.0636  
+## 13 100001 Training Shopping Centre national      1628728  2020 0.789   
+## 14 100001 Training Shopping Centre overseas         1252  2020 0.000607
+## 15 100001 Training Shopping Centre resident       256928  2020 0.124   
+## 16 100001 Training Shopping Centre worker         177076  2020 0.0858  
+## 17 100001 Training Shopping Centre national      5707971  2021 0.745   
+## 18 100001 Training Shopping Centre overseas          805  2021 0.000105
+## 19 100001 Training Shopping Centre resident      1180274  2021 0.154   
+## 20 100001 Training Shopping Centre worker         771590  2021 0.101</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="analysis-of-historical-data-1.html#cb28-1"></a>segment_filtered &lt;-<span class="st"> </span><span class="kw">filter</span> (data_segment, segment <span class="op">==</span><span class="st"> &quot;national&quot;</span><span class="op">|</span><span class="st"> </span>segment <span class="op">==</span><span class="st"> &quot;resident&quot;</span> <span class="op">|</span><span class="st"> </span>segment <span class="op">==</span><span class="st"> &quot;worker&quot;</span>)</span>
+<span id="cb28-2"><a href="analysis-of-historical-data-1.html#cb28-2"></a></span>
+<span id="cb28-3"><a href="analysis-of-historical-data-1.html#cb28-3"></a>g7 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(segment_filtered, <span class="kw">aes</span>(<span class="dt">fill=</span> segment, <span class="dt">y=</span> pct,  <span class="dt">x=</span> year)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb28-4"><a href="analysis-of-historical-data-1.html#cb28-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;cadetblue4&quot;</span>) <span class="op">+</span></span>
+<span id="cb28-5"><a href="analysis-of-historical-data-1.html#cb28-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>((pct),<span class="fl">0.1</span>),</span>
+<span id="cb28-6"><a href="analysis-of-historical-data-1.html#cb28-6"></a>                <span class="dt">y =</span> pct, </span>
+<span id="cb28-7"><a href="analysis-of-historical-data-1.html#cb28-7"></a>                <span class="dt">group =</span> year,),</span>
+<span id="cb28-8"><a href="analysis-of-historical-data-1.html#cb28-8"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb28-9"><a href="analysis-of-historical-data-1.html#cb28-9"></a>            <span class="dt">vjust =</span> <span class="fl">-0.4</span>,</span>
+<span id="cb28-10"><a href="analysis-of-historical-data-1.html#cb28-10"></a>            <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>,</span>
+<span id="cb28-11"><a href="analysis-of-historical-data-1.html#cb28-11"></a>            <span class="dt">size =</span> <span class="fl">3.5</span>) <span class="op">+</span></span>
+<span id="cb28-12"><a href="analysis-of-historical-data-1.html#cb28-12"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Studying 4 species..&quot;</span>) <span class="op">+</span></span>
+<span id="cb28-13"><a href="analysis-of-historical-data-1.html#cb28-13"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>segment) <span class="op">+</span></span>
+<span id="cb28-14"><a href="analysis-of-historical-data-1.html#cb28-14"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb28-15"><a href="analysis-of-historical-data-1.html#cb28-15"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent) <span class="op">+</span></span>
+<span id="cb28-16"><a href="analysis-of-historical-data-1.html#cb28-16"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>)<span class="op">+</span></span>
+<span id="cb28-17"><a href="analysis-of-historical-data-1.html#cb28-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;perc.(%)&quot;</span>, </span>
+<span id="cb28-18"><a href="analysis-of-historical-data-1.html#cb28-18"></a>       <span class="dt">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb28-19"><a href="analysis-of-historical-data-1.html#cb28-19"></a>       <span class="dt">title=</span><span class="st">&quot;Visitors by segment&quot;</span>, </span>
+<span id="cb28-20"><a href="analysis-of-historical-data-1.html#cb28-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
+<span id="cb28-21"><a href="analysis-of-historical-data-1.html#cb28-21"></a></span>
+<span id="cb28-22"><a href="analysis-of-historical-data-1.html#cb28-22"></a>g7</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="analysis-of-historical-data-1.html#cb29-1"></a>data_sector &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_sectors.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb29-2"><a href="analysis-of-historical-data-1.html#cb29-2"></a></span>
+<span id="cb29-3"><a href="analysis-of-historical-data-1.html#cb29-3"></a><span class="kw">as_tibble</span>(data_sector)</span></code></pre></div>
+<pre><code>## # A tibble: 37 x 5
+##     year    pid name                     sector                 pct
+##    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;                &lt;dbl&gt;
+##  1  2017 100001 Training Shopping Centre Clothing            0.298 
+##  2  2018 100001 Training Shopping Centre Clothing            0.299 
+##  3  2019 100001 Training Shopping Centre Clothing            0.296 
+##  4  2020 100001 Training Shopping Centre Clothing            0.226 
+##  5  2017 100001 Training Shopping Centre Department Stores   0.196 
+##  6  2018 100001 Training Shopping Centre Department Stores   0.191 
+##  7  2019 100001 Training Shopping Centre Department Stores   0.189 
+##  8  2020 100001 Training Shopping Centre Department Stores   0.176 
+##  9  2017 100001 Training Shopping Centre Domestic Appliances 0.0475
+## 10  2018 100001 Training Shopping Centre Domestic Appliances 0.0499
+## # ... with 27 more rows</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="analysis-of-historical-data-1.html#cb31-1"></a>data_sector &lt;-<span class="st"> </span><span class="kw">arrange</span>(data_sector, <span class="kw">desc</span>(pct))</span>
+<span id="cb31-2"><a href="analysis-of-historical-data-1.html#cb31-2"></a></span>
+<span id="cb31-3"><a href="analysis-of-historical-data-1.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="analysis-of-historical-data-1.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="analysis-of-historical-data-1.html#cb31-5"></a>data_sector &lt;-<span class="st"> </span><span class="kw">filter</span> (data_sector, sector <span class="op">==</span><span class="st"> &quot;Clothing&quot;</span><span class="op">|</span><span class="st"> </span>sector <span class="op">==</span><span class="st"> &quot;Department Stores&quot;</span> <span class="op">|</span><span class="st"> </span>sector <span class="op">==</span><span class="st"> &quot;Fast Food&quot;</span> <span class="op">|</span><span class="st"> </span>sector <span class="op">==</span><span class="st"> &quot;Supermarket&quot;</span> <span class="op">|</span><span class="st"> </span>sector <span class="op">==</span><span class="st"> &quot;Domestic Appliances&quot;</span>)</span>
+<span id="cb31-6"><a href="analysis-of-historical-data-1.html#cb31-6"></a></span>
+<span id="cb31-7"><a href="analysis-of-historical-data-1.html#cb31-7"></a></span>
+<span id="cb31-8"><a href="analysis-of-historical-data-1.html#cb31-8"></a></span>
+<span id="cb31-9"><a href="analysis-of-historical-data-1.html#cb31-9"></a>g8 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_sector, <span class="kw">aes</span>(<span class="dt">fill=</span> sector, <span class="dt">y=</span> pct,  <span class="dt">x=</span> year)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb31-10"><a href="analysis-of-historical-data-1.html#cb31-10"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkcyan&quot;</span>) <span class="op">+</span></span>
+<span id="cb31-11"><a href="analysis-of-historical-data-1.html#cb31-11"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>((pct),.<span class="dv">2</span>),</span>
+<span id="cb31-12"><a href="analysis-of-historical-data-1.html#cb31-12"></a>                <span class="dt">y =</span> pct, </span>
+<span id="cb31-13"><a href="analysis-of-historical-data-1.html#cb31-13"></a>                <span class="dt">group =</span> year,),</span>
+<span id="cb31-14"><a href="analysis-of-historical-data-1.html#cb31-14"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb31-15"><a href="analysis-of-historical-data-1.html#cb31-15"></a>            <span class="dt">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb31-16"><a href="analysis-of-historical-data-1.html#cb31-16"></a>            <span class="dt">colour=</span><span class="st">&quot;white&quot;</span>,</span>
+<span id="cb31-17"><a href="analysis-of-historical-data-1.html#cb31-17"></a>            <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb31-18"><a href="analysis-of-historical-data-1.html#cb31-18"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>sector) <span class="op">+</span></span>
+<span id="cb31-19"><a href="analysis-of-historical-data-1.html#cb31-19"></a><span class="st">  </span><span class="kw">theme_grey</span>() <span class="op">+</span></span>
+<span id="cb31-20"><a href="analysis-of-historical-data-1.html#cb31-20"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb31-21"><a href="analysis-of-historical-data-1.html#cb31-21"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;&quot;</span>)<span class="op">+</span></span>
+<span id="cb31-22"><a href="analysis-of-historical-data-1.html#cb31-22"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent) <span class="op">+</span></span>
+<span id="cb31-23"><a href="analysis-of-historical-data-1.html#cb31-23"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;perc.(%)&quot;</span>, </span>
+<span id="cb31-24"><a href="analysis-of-historical-data-1.html#cb31-24"></a>       <span class="dt">title=</span><span class="st">&quot;Visits by sector&quot;</span>,</span>
+<span id="cb31-25"><a href="analysis-of-historical-data-1.html#cb31-25"></a>       <span class="dt">subtitle =</span><span class="st">&quot;Selected sectors&quot;</span>, </span>
+<span id="cb31-26"><a href="analysis-of-historical-data-1.html#cb31-26"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
+<span id="cb31-27"><a href="analysis-of-historical-data-1.html#cb31-27"></a></span>
+<span id="cb31-28"><a href="analysis-of-historical-data-1.html#cb31-28"></a>g8</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="analysis-of-historical-data-1.html#cb32-1"></a>data_dwell &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_dwell_time.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb32-2"><a href="analysis-of-historical-data-1.html#cb32-2"></a></span>
+<span id="cb32-3"><a href="analysis-of-historical-data-1.html#cb32-3"></a></span>
+<span id="cb32-4"><a href="analysis-of-historical-data-1.html#cb32-4"></a>data_dwell &lt;-<span class="st"> </span>data_dwell <span class="op">%&gt;%</span></span>
+<span id="cb32-5"><a href="analysis-of-historical-data-1.html#cb32-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">month =</span> <span class="kw">as.Date</span>(month)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb32-6"><a href="analysis-of-historical-data-1.html#cb32-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.character</span>(year))</span>
+<span id="cb32-7"><a href="analysis-of-historical-data-1.html#cb32-7"></a></span>
+<span id="cb32-8"><a href="analysis-of-historical-data-1.html#cb32-8"></a></span>
+<span id="cb32-9"><a href="analysis-of-historical-data-1.html#cb32-9"></a>data_dwell &lt;-<span class="st"> </span>data_dwell <span class="op">%&gt;%</span></span>
+<span id="cb32-10"><a href="analysis-of-historical-data-1.html#cb32-10"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mm =</span> <span class="kw">fct_relevel</span>(mm, </span>
+<span id="cb32-11"><a href="analysis-of-historical-data-1.html#cb32-11"></a>                          <span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;Mar&quot;</span>,<span class="st">&quot;Apr&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;Jun&quot;</span>, </span>
+<span id="cb32-12"><a href="analysis-of-historical-data-1.html#cb32-12"></a>                          <span class="st">&quot;Jul&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sep&quot;</span>, <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>)) </span>
+<span id="cb32-13"><a href="analysis-of-historical-data-1.html#cb32-13"></a></span>
+<span id="cb32-14"><a href="analysis-of-historical-data-1.html#cb32-14"></a></span>
+<span id="cb32-15"><a href="analysis-of-historical-data-1.html#cb32-15"></a><span class="kw">as_tibble</span>(data_dwell)</span></code></pre></div>
+<pre><code>## # A tibble: 54 x 6
+##       pid name                     month      dwell year  mm   
+##     &lt;int&gt; &lt;chr&gt;                    &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;
+##  1 100001 Training Shopping Centre 2017-01-01  93.6 2017  Jan  
+##  2 100001 Training Shopping Centre 2017-02-01  92.4 2017  Feb  
+##  3 100001 Training Shopping Centre 2017-03-01  88.1 2017  Mar  
+##  4 100001 Training Shopping Centre 2017-04-01  96.8 2017  Apr  
+##  5 100001 Training Shopping Centre 2017-05-01  91.9 2017  May  
+##  6 100001 Training Shopping Centre 2017-06-01  88.6 2017  Jun  
+##  7 100001 Training Shopping Centre 2017-07-01  88.7 2017  Jul  
+##  8 100001 Training Shopping Centre 2017-08-01  89.1 2017  Aug  
+##  9 100001 Training Shopping Centre 2017-09-01  88   2017  Sep  
+## 10 100001 Training Shopping Centre 2017-10-01  91.9 2017  Oct  
+## # ... with 44 more rows</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="analysis-of-historical-data-1.html#cb34-1"></a>g9 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> data_dwell, <span class="kw">aes</span>(month, dwell)) <span class="op">+</span></span>
+<span id="cb34-2"><a href="analysis-of-historical-data-1.html#cb34-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma)<span class="op">+</span></span>
+<span id="cb34-3"><a href="analysis-of-historical-data-1.html#cb34-3"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb34-4"><a href="analysis-of-historical-data-1.html#cb34-4"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb34-5"><a href="analysis-of-historical-data-1.html#cb34-5"></a><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">label_date</span>(<span class="st">&quot;%B</span><span class="ch">\n</span><span class="st">%Y&quot;</span>))<span class="op">+</span></span>
+<span id="cb34-6"><a href="analysis-of-historical-data-1.html#cb34-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;dwell time (mins)&quot;</span>, </span>
+<span id="cb34-7"><a href="analysis-of-historical-data-1.html#cb34-7"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
+<span id="cb34-8"><a href="analysis-of-historical-data-1.html#cb34-8"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>))</span>
+<span id="cb34-9"><a href="analysis-of-historical-data-1.html#cb34-9"></a></span>
+<span id="cb34-10"><a href="analysis-of-historical-data-1.html#cb34-10"></a><span class="kw">ggplotly</span>(g9) </span></code></pre></div>
+<div id="htmlwidget-e76b718256fb9e8e4c98" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e76b718256fb9e8e4c98">{"x":{"data":[{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383,18414,18444,18475,18506,18536,18567,18597,18628,18659,18687,18718,18748,18779],"y":[93.63053333,92.35833333,88.0528,96.7542,91.8625,88.625,88.69585,89.0833,88,91.8667,101.4,114.8333,96.5833,97.6167,95.7917,98.7167,94.625,94.05,89.2417,91.825,94.1583,99.5333,106.05,106.3833,88.325,82.6833,89.3667,94.7917,89.1,83.2,88.15,83.1083,82.7,82.8417,92.9167,109.8,95.9833,96.775,79,49.6833,50.2833,67.8333,80.0917,88.6333,80.95,89.725,59.4083,96.175,41.4083,43.1167,45.7833,80.25,85.35,87.25],"text":["month: 2017-01-01<br />dwell:  93.63053","month: 2017-02-01<br />dwell:  92.35833","month: 2017-03-01<br />dwell:  88.05280","month: 2017-04-01<br />dwell:  96.75420","month: 2017-05-01<br />dwell:  91.86250","month: 2017-06-01<br />dwell:  88.62500","month: 2017-07-01<br />dwell:  88.69585","month: 2017-08-01<br />dwell:  89.08330","month: 2017-09-01<br />dwell:  88.00000","month: 2017-10-01<br />dwell:  91.86670","month: 2017-11-01<br />dwell: 101.40000","month: 2017-12-01<br />dwell: 114.83330","month: 2018-01-01<br />dwell:  96.58330","month: 2018-02-01<br />dwell:  97.61670","month: 2018-03-01<br />dwell:  95.79170","month: 2018-04-01<br />dwell:  98.71670","month: 2018-05-01<br />dwell:  94.62500","month: 2018-06-01<br />dwell:  94.05000","month: 2018-07-01<br />dwell:  89.24170","month: 2018-08-01<br />dwell:  91.82500","month: 2018-09-01<br />dwell:  94.15830","month: 2018-10-01<br />dwell:  99.53330","month: 2018-11-01<br />dwell: 106.05000","month: 2018-12-01<br />dwell: 106.38330","month: 2019-01-01<br />dwell:  88.32500","month: 2019-02-01<br />dwell:  82.68330","month: 2019-03-01<br />dwell:  89.36670","month: 2019-04-01<br />dwell:  94.79170","month: 2019-05-01<br />dwell:  89.10000","month: 2019-06-01<br />dwell:  83.20000","month: 2019-07-01<br />dwell:  88.15000","month: 2019-08-01<br />dwell:  83.10830","month: 2019-09-01<br />dwell:  82.70000","month: 2019-10-01<br />dwell:  82.84170","month: 2019-11-01<br />dwell:  92.91670","month: 2019-12-01<br />dwell: 109.80000","month: 2020-01-01<br />dwell:  95.98330","month: 2020-02-01<br />dwell:  96.77500","month: 2020-03-01<br />dwell:  79.00000","month: 2020-04-01<br />dwell:  49.68330","month: 2020-05-01<br />dwell:  50.28330","month: 2020-06-01<br />dwell:  67.83330","month: 2020-07-01<br />dwell:  80.09170","month: 2020-08-01<br />dwell:  88.63330","month: 2020-09-01<br />dwell:  80.95000","month: 2020-10-01<br />dwell:  89.72500","month: 2020-11-01<br />dwell:  59.40830","month: 2020-12-01<br />dwell:  96.17500","month: 2021-01-01<br />dwell:  41.40830","month: 2021-02-01<br />dwell:  43.11670","month: 2021-03-01<br />dwell:  45.78330","month: 2021-04-01<br />dwell:  80.25000","month: 2021-05-01<br />dwell:  85.35000","month: 2021-06-01<br />dwell:  87.25000"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Average dwell time","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17086.4,18859.6],"tickmode":"array","ticktext":["January<br />2017","January<br />2018","January<br />2019","January<br />2020","January<br />2021"],"tickvals":[17167,17532,17897,18262,18628],"categoryorder":"array","categoryarray":["January<br />2017","January<br />2018","January<br />2019","January<br />2020","January<br />2021"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[37.73705,118.50455],"tickmode":"array","ticktext":["40","60","80","100"],"tickvals":[40,60,80,100],"categoryorder":"array","categoryarray":["40","60","80","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"dwell time (mins)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"494856446882":{"x":{},"y":{},"type":"scatter"},"49486c9f5850":{"x":{},"y":{}}},"cur_data":"494856446882","visdat":{"494856446882":["function (y) ","x"],"49486c9f5850":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="analysis-of-historical-data-1.html#cb35-1"></a>g10 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_dwell, <span class="kw">aes</span>(month, dwell)) <span class="op">+</span></span>
+<span id="cb35-2"><a href="analysis-of-historical-data-1.html#cb35-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;darkturquoise&quot;</span> ,</span>
+<span id="cb35-3"><a href="analysis-of-historical-data-1.html#cb35-3"></a>             <span class="dt">size =</span> <span class="dv">3</span>, </span>
+<span id="cb35-4"><a href="analysis-of-historical-data-1.html#cb35-4"></a>             <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)<span class="op">+</span></span>
+<span id="cb35-5"><a href="analysis-of-historical-data-1.html#cb35-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">na.rm =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb35-6"><a href="analysis-of-historical-data-1.html#cb35-6"></a>            <span class="dt">colour =</span> <span class="st">&quot;darkturquoise&quot;</span>, <span class="dt">size =</span> <span class="fl">1.3</span>) <span class="op">+</span></span>
+<span id="cb35-7"><a href="analysis-of-historical-data-1.html#cb35-7"></a><span class="st">  </span><span class="kw">annotate</span>(</span>
+<span id="cb35-8"><a href="analysis-of-historical-data-1.html#cb35-8"></a>    <span class="dt">geom =</span> <span class="st">&quot;segment&quot;</span>, <span class="dt">x =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-23&quot;</span>), <span class="dt">y =</span> <span class="dv">105</span>, <span class="dt">xend =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-23&quot;</span>), <span class="dt">yend =</span> <span class="dv">95</span>, </span>
+<span id="cb35-9"><a href="analysis-of-historical-data-1.html#cb35-9"></a>    <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</span>
+<span id="cb35-10"><a href="analysis-of-historical-data-1.html#cb35-10"></a>  ) <span class="op">+</span></span>
+<span id="cb35-11"><a href="analysis-of-historical-data-1.html#cb35-11"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="kw">ymd</span>(<span class="st">&quot;2020-03-12&quot;</span>), <span class="dt">y =</span> <span class="dv">110</span>,  <span class="dt">label =</span> <span class="st">&quot;lockdown</span><span class="ch">\n</span><span class="st">23 March 2020&quot;</span>, <span class="dt">hjust =</span> <span class="st">&quot;left&quot;</span>) <span class="op">+</span></span>
+<span id="cb35-12"><a href="analysis-of-historical-data-1.html#cb35-12"></a><span class="st">  </span><span class="kw">theme_light</span>()</span>
+<span id="cb35-13"><a href="analysis-of-historical-data-1.html#cb35-13"></a></span>
+<span id="cb35-14"><a href="analysis-of-historical-data-1.html#cb35-14"></a></span>
+<span id="cb35-15"><a href="analysis-of-historical-data-1.html#cb35-15"></a>g10 <span class="op">+</span></span>
+<span id="cb35-16"><a href="analysis-of-historical-data-1.html#cb35-16"></a><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">label_date</span>(<span class="st">&quot;%B</span><span class="ch">\n</span><span class="st">%Y&quot;</span>))<span class="op">+</span></span>
+<span id="cb35-17"><a href="analysis-of-historical-data-1.html#cb35-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;dwell time (mins)&quot;</span>, </span>
+<span id="cb35-18"><a href="analysis-of-historical-data-1.html#cb35-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
+<span id="cb35-19"><a href="analysis-of-historical-data-1.html#cb35-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
+<span id="cb35-20"><a href="analysis-of-historical-data-1.html#cb35-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="analysis-of-historical-data-1.html#cb36-1"></a>g11 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_dwell, <span class="kw">aes</span>(mm, dwell, <span class="dt">color =</span> year)) <span class="op">+</span></span>
+<span id="cb36-2"><a href="analysis-of-historical-data-1.html#cb36-2"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma)<span class="op">+</span></span>
+<span id="cb36-3"><a href="analysis-of-historical-data-1.html#cb36-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">1</span>)<span class="op">+</span></span>
+<span id="cb36-4"><a href="analysis-of-historical-data-1.html#cb36-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">group =</span> year), <span class="dt">size =</span> <span class="dv">3</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb36-5"><a href="analysis-of-historical-data-1.html#cb36-5"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="st">&#39;Program Type&#39;</span>)<span class="op">+</span></span>
+<span id="cb36-6"><a href="analysis-of-historical-data-1.html#cb36-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year,<span class="dt">nrow =</span> <span class="dv">2</span>)<span class="op">+</span></span>
+<span id="cb36-7"><a href="analysis-of-historical-data-1.html#cb36-7"></a><span class="st">  </span><span class="kw">theme_light</span>()<span class="op">+</span></span>
+<span id="cb36-8"><a href="analysis-of-historical-data-1.html#cb36-8"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(dwell, <span class="dv">0</span>)),</span>
+<span id="cb36-9"><a href="analysis-of-historical-data-1.html#cb36-9"></a>            <span class="dt">colour =</span> <span class="st">&quot;grey32&quot;</span>,</span>
+<span id="cb36-10"><a href="analysis-of-historical-data-1.html#cb36-10"></a>            <span class="dt">size =</span> <span class="dv">3</span>,</span>
+<span id="cb36-11"><a href="analysis-of-historical-data-1.html#cb36-11"></a>            <span class="dt">vjust =</span> <span class="st">&quot;inward&quot;</span>, <span class="dt">hjust =</span> <span class="st">&quot;outward&quot;</span>,</span>
+<span id="cb36-12"><a href="analysis-of-historical-data-1.html#cb36-12"></a>            <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb36-13"><a href="analysis-of-historical-data-1.html#cb36-13"></a></span>
+<span id="cb36-14"><a href="analysis-of-historical-data-1.html#cb36-14"></a></span>
+<span id="cb36-15"><a href="analysis-of-historical-data-1.html#cb36-15"></a>g11 <span class="op">+</span></span>
+<span id="cb36-16"><a href="analysis-of-historical-data-1.html#cb36-16"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="dt">legend.justification =</span> <span class="kw">c</span>(<span class="fl">2.6</span>, <span class="dv">0</span>))<span class="op">+</span></span>
+<span id="cb36-17"><a href="analysis-of-historical-data-1.html#cb36-17"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;dwell time (mins)&quot;</span>, </span>
+<span id="cb36-18"><a href="analysis-of-historical-data-1.html#cb36-18"></a>       <span class="dt">x=</span><span class="st">&quot;date&quot;</span>, </span>
+<span id="cb36-19"><a href="analysis-of-historical-data-1.html#cb36-19"></a>       <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Average dwell time&quot;</span>),</span>
+<span id="cb36-20"><a href="analysis-of-historical-data-1.html#cb36-20"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-3.png" width="672" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="analysis-of-historical-data-1.html#cb37-1"></a>data_dwell_avg &lt;-<span class="st"> </span>data_dwell <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb37-2"><a href="analysis-of-historical-data-1.html#cb37-2"></a><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
+<span id="cb37-3"><a href="analysis-of-historical-data-1.html#cb37-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">dwell =</span> <span class="kw">mean</span>(dwell)) </span>
+<span id="cb37-4"><a href="analysis-of-historical-data-1.html#cb37-4"></a></span>
+<span id="cb37-5"><a href="analysis-of-historical-data-1.html#cb37-5"></a></span>
+<span id="cb37-6"><a href="analysis-of-historical-data-1.html#cb37-6"></a>g12 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_dwell_avg, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> dwell)) <span class="op">+</span></span>
+<span id="cb37-7"><a href="analysis-of-historical-data-1.html#cb37-7"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;cyan4&quot;</span>)<span class="op">+</span></span>
+<span id="cb37-8"><a href="analysis-of-historical-data-1.html#cb37-8"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb37-9"><a href="analysis-of-historical-data-1.html#cb37-9"></a><span class="st">  </span><span class="kw">theme_light</span>() <span class="op">+</span></span>
+<span id="cb37-10"><a href="analysis-of-historical-data-1.html#cb37-10"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(dwell, <span class="dv">0</span>)),</span>
+<span id="cb37-11"><a href="analysis-of-historical-data-1.html#cb37-11"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb37-12"><a href="analysis-of-historical-data-1.html#cb37-12"></a>            <span class="dt">size =</span> <span class="dv">8</span>,</span>
+<span id="cb37-13"><a href="analysis-of-historical-data-1.html#cb37-13"></a>            <span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>,</span>
+<span id="cb37-14"><a href="analysis-of-historical-data-1.html#cb37-14"></a>            <span class="dt">vjust =</span> <span class="fl">1.5</span>) </span>
+<span id="cb37-15"><a href="analysis-of-historical-data-1.html#cb37-15"></a>g12 <span class="op">+</span></span>
+<span id="cb37-16"><a href="analysis-of-historical-data-1.html#cb37-16"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;average dwell time (mins)&quot;</span>, </span>
+<span id="cb37-17"><a href="analysis-of-historical-data-1.html#cb37-17"></a>       <span class="dt">x=</span><span class="st">&quot;year&quot;</span>,</span>
+<span id="cb37-18"><a href="analysis-of-historical-data-1.html#cb37-18"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-4.png" width="672" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="analysis-of-historical-data-1.html#cb38-1"></a>data_hour &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_hour.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb38-2"><a href="analysis-of-historical-data-1.html#cb38-2"></a></span>
+<span id="cb38-3"><a href="analysis-of-historical-data-1.html#cb38-3"></a>data_hour &lt;-<span class="st"> </span>data_hour <span class="op">%&gt;%</span></span>
+<span id="cb38-4"><a href="analysis-of-historical-data-1.html#cb38-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.character</span>(year))</span>
+<span id="cb38-5"><a href="analysis-of-historical-data-1.html#cb38-5"></a></span>
+<span id="cb38-6"><a href="analysis-of-historical-data-1.html#cb38-6"></a></span>
+<span id="cb38-7"><a href="analysis-of-historical-data-1.html#cb38-7"></a><span class="kw">as_tibble</span>(data_hour)</span></code></pre></div>
+<pre><code>## # A tibble: 120 x 7
+##       pid name                   year   hour avg_visits total_visits_ye~     pct
+##     &lt;int&gt; &lt;chr&gt;                  &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+##  1 374342 intu Merry Hill, West~ 2017      0       340.           59710. 0.00569
+##  2 374342 intu Merry Hill, West~ 2017      1       293.           59710. 0.00490
+##  3 374342 intu Merry Hill, West~ 2017      2       327.           59710. 0.00547
+##  4 374342 intu Merry Hill, West~ 2017      3       280.           59710. 0.00469
+##  5 374342 intu Merry Hill, West~ 2017      4       342.           59710. 0.00573
+##  6 374342 intu Merry Hill, West~ 2017      5       337.           59710. 0.00564
+##  7 374342 intu Merry Hill, West~ 2017      6       739.           59710. 0.0124 
+##  8 374342 intu Merry Hill, West~ 2017      7       946.           59710. 0.0159 
+##  9 374342 intu Merry Hill, West~ 2017      8      1506.           59710. 0.0252 
+## 10 374342 intu Merry Hill, West~ 2017      9      2580.           59710. 0.0432 
+## # ... with 110 more rows</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="analysis-of-historical-data-1.html#cb40-1"></a>g13 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_hour, <span class="kw">aes</span>(<span class="dt">x=</span>hour, <span class="dt">y=</span>pct)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb40-2"><a href="analysis-of-historical-data-1.html#cb40-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)<span class="op">+</span></span>
+<span id="cb40-3"><a href="analysis-of-historical-data-1.html#cb40-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year,<span class="dt">nrow =</span> <span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb40-4"><a href="analysis-of-historical-data-1.html#cb40-4"></a><span class="st">  </span><span class="kw">theme_light</span>()<span class="op">+</span></span>
+<span id="cb40-5"><a href="analysis-of-historical-data-1.html#cb40-5"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent) <span class="op">+</span></span>
+<span id="cb40-6"><a href="analysis-of-historical-data-1.html#cb40-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;perc (%)&quot;</span>, </span>
+<span id="cb40-7"><a href="analysis-of-historical-data-1.html#cb40-7"></a>       <span class="dt">x=</span><span class="st">&quot;hour&quot;</span>, </span>
+<span id="cb40-8"><a href="analysis-of-historical-data-1.html#cb40-8"></a>       <span class="dt">title=</span><span class="st">&quot;Visits by hour (%)&quot;</span>, </span>
+<span id="cb40-9"><a href="analysis-of-historical-data-1.html#cb40-9"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
+<span id="cb40-10"><a href="analysis-of-historical-data-1.html#cb40-10"></a></span>
+<span id="cb40-11"><a href="analysis-of-historical-data-1.html#cb40-11"></a><span class="kw">plot</span>(g13)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="analysis-of-historical-data-1.html#cb41-1"></a><span class="co">## time ranges</span></span>
+<span id="cb41-2"><a href="analysis-of-historical-data-1.html#cb41-2"></a>morning &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;6&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;7&quot;</span><span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;8&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;9&quot;</span>)</span>
+<span id="cb41-3"><a href="analysis-of-historical-data-1.html#cb41-3"></a>mid_morning &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;10&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;11&quot;</span>)</span>
+<span id="cb41-4"><a href="analysis-of-historical-data-1.html#cb41-4"></a>noon &lt;-<span class="st"> </span><span class="kw">filter</span>  (data_hour, hour <span class="op">==</span><span class="st"> &quot;12&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;13&quot;</span>)</span>
+<span id="cb41-5"><a href="analysis-of-historical-data-1.html#cb41-5"></a>afternoon &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;14&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;15&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;16&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;17&quot;</span>)</span>
+<span id="cb41-6"><a href="analysis-of-historical-data-1.html#cb41-6"></a>evening &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;18&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;19&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;20&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;21&quot;</span>)</span>
+<span id="cb41-7"><a href="analysis-of-historical-data-1.html#cb41-7"></a>night &lt;-<span class="st"> </span><span class="kw">filter</span> (data_hour, hour <span class="op">==</span><span class="st"> &quot;22&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;23&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;0&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;1&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;2&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;3&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;4&quot;</span> <span class="op">|</span><span class="st"> </span>hour <span class="op">==</span><span class="st"> &quot;5&quot;</span>)</span>
+<span id="cb41-8"><a href="analysis-of-historical-data-1.html#cb41-8"></a></span>
+<span id="cb41-9"><a href="analysis-of-historical-data-1.html#cb41-9"></a><span class="co"># updating the data frames including the field season</span></span>
+<span id="cb41-10"><a href="analysis-of-historical-data-1.html#cb41-10"></a>morning &lt;-<span class="st"> </span><span class="kw">mutate</span>(morning, <span class="dt">period =</span> <span class="st">&quot;morning (6:00 - 9:59)&quot;</span>)</span>
+<span id="cb41-11"><a href="analysis-of-historical-data-1.html#cb41-11"></a>mid_morning &lt;-<span class="st"> </span><span class="kw">mutate</span>(mid_morning,<span class="dt">period =</span> <span class="st">&quot;mid-morning (10:00 - 11:59)&quot;</span>)</span>
+<span id="cb41-12"><a href="analysis-of-historical-data-1.html#cb41-12"></a>noon &lt;-<span class="st"> </span><span class="kw">mutate</span>(noon,<span class="dt">period =</span> <span class="st">&quot;noon (12:00 - 13:59)&quot;</span>)</span>
+<span id="cb41-13"><a href="analysis-of-historical-data-1.html#cb41-13"></a>afternoon &lt;-<span class="st"> </span><span class="kw">mutate</span>(afternoon, <span class="dt">period =</span> <span class="st">&quot;afternoon (14:00 - 17:59)&quot;</span>)</span>
+<span id="cb41-14"><a href="analysis-of-historical-data-1.html#cb41-14"></a>evening &lt;-<span class="st"> </span><span class="kw">mutate</span>(evening, <span class="dt">period =</span> <span class="st">&quot;evening (18:00 - 21:59)&quot;</span>)</span>
+<span id="cb41-15"><a href="analysis-of-historical-data-1.html#cb41-15"></a>night &lt;-<span class="st"> </span><span class="kw">mutate</span>(night, <span class="dt">period =</span> <span class="st">&quot;night (22:00 - 5:59)&quot;</span>)</span>
+<span id="cb41-16"><a href="analysis-of-historical-data-1.html#cb41-16"></a></span>
+<span id="cb41-17"><a href="analysis-of-historical-data-1.html#cb41-17"></a><span class="co">## concatenate</span></span>
+<span id="cb41-18"><a href="analysis-of-historical-data-1.html#cb41-18"></a>data_hour_period &lt;-<span class="st"> </span><span class="kw">full_join</span>(morning, mid_morning, <span class="dt">by =</span> <span class="ot">NULL</span>, <span class="dt">copy =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;pid&quot;, &quot;name&quot;, &quot;year&quot;, &quot;hour&quot;, &quot;avg_visits&quot;, &quot;total_visits_year&quot;, &quot;pct&quot;, &quot;period&quot;)</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="analysis-of-historical-data-1.html#cb43-1"></a>data_hour_period2 &lt;-<span class="st"> </span><span class="kw">full_join</span>(data_hour_period, noon, <span class="dt">by =</span> <span class="ot">NULL</span>, <span class="dt">copy =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;pid&quot;, &quot;name&quot;, &quot;year&quot;, &quot;hour&quot;, &quot;avg_visits&quot;, &quot;total_visits_year&quot;, &quot;pct&quot;, &quot;period&quot;)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="analysis-of-historical-data-1.html#cb45-1"></a>data_hour_period3 &lt;-<span class="st"> </span><span class="kw">full_join</span>(data_hour_period2, afternoon, <span class="dt">by =</span> <span class="ot">NULL</span>, <span class="dt">copy =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;pid&quot;, &quot;name&quot;, &quot;year&quot;, &quot;hour&quot;, &quot;avg_visits&quot;, &quot;total_visits_year&quot;, &quot;pct&quot;, &quot;period&quot;)</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="analysis-of-historical-data-1.html#cb47-1"></a>data_hour_period4 &lt;-<span class="st"> </span><span class="kw">full_join</span>(data_hour_period3, evening, <span class="dt">by =</span> <span class="ot">NULL</span>, <span class="dt">copy =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;pid&quot;, &quot;name&quot;, &quot;year&quot;, &quot;hour&quot;, &quot;avg_visits&quot;, &quot;total_visits_year&quot;, &quot;pct&quot;, &quot;period&quot;)</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="analysis-of-historical-data-1.html#cb49-1"></a>data_hour_period5 &lt;-<span class="st"> </span><span class="kw">full_join</span>(data_hour_period4, night, <span class="dt">by =</span> <span class="ot">NULL</span>, <span class="dt">copy =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;pid&quot;, &quot;name&quot;, &quot;year&quot;, &quot;hour&quot;, &quot;avg_visits&quot;, &quot;total_visits_year&quot;, &quot;pct&quot;, &quot;period&quot;)</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="analysis-of-historical-data-1.html#cb51-1"></a>data_hour &lt;-<span class="st"> </span>data_hour_period5 <span class="op">%&gt;%</span></span>
+<span id="cb51-2"><a href="analysis-of-historical-data-1.html#cb51-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">period =</span> <span class="kw">fct_relevel</span>(period, </span>
+<span id="cb51-3"><a href="analysis-of-historical-data-1.html#cb51-3"></a>                              <span class="st">&quot;morning (6:00 - 9:59)&quot;</span>, <span class="st">&quot;mid-morning (10:00 - 11:59)&quot;</span>, <span class="st">&quot;noon (12:00 - 13:59)&quot;</span>, </span>
+<span id="cb51-4"><a href="analysis-of-historical-data-1.html#cb51-4"></a>                              <span class="st">&quot;afternoon (14:00 - 17:59)&quot;</span>, <span class="st">&quot;evening (18:00 - 21:59)&quot;</span>, <span class="st">&quot;night (22:00 - 5:59)&quot;</span>))  </span>
+<span id="cb51-5"><a href="analysis-of-historical-data-1.html#cb51-5"></a></span>
+<span id="cb51-6"><a href="analysis-of-historical-data-1.html#cb51-6"></a></span>
+<span id="cb51-7"><a href="analysis-of-historical-data-1.html#cb51-7"></a></span>
+<span id="cb51-8"><a href="analysis-of-historical-data-1.html#cb51-8"></a>data_hour &lt;-<span class="st"> </span>data_hour <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb51-9"><a href="analysis-of-historical-data-1.html#cb51-9"></a><span class="st">  </span><span class="kw">group_by</span>(year, period) <span class="op">%&gt;%</span></span>
+<span id="cb51-10"><a href="analysis-of-historical-data-1.html#cb51-10"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pct =</span> <span class="kw">sum</span>(pct)) </span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="analysis-of-historical-data-1.html#cb53-1"></a>g14 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_hour, <span class="kw">aes</span>(<span class="dt">fill=</span> period, <span class="dt">y=</span> pct,  <span class="dt">x=</span> year)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb53-2"><a href="analysis-of-historical-data-1.html#cb53-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;blue4&quot;</span>) <span class="op">+</span></span>
+<span id="cb53-3"><a href="analysis-of-historical-data-1.html#cb53-3"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>((pct),.<span class="dv">2</span>),</span>
+<span id="cb53-4"><a href="analysis-of-historical-data-1.html#cb53-4"></a>                <span class="dt">y =</span> pct, </span>
+<span id="cb53-5"><a href="analysis-of-historical-data-1.html#cb53-5"></a>                <span class="dt">group =</span> year,),</span>
+<span id="cb53-6"><a href="analysis-of-historical-data-1.html#cb53-6"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb53-7"><a href="analysis-of-historical-data-1.html#cb53-7"></a>            <span class="dt">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb53-8"><a href="analysis-of-historical-data-1.html#cb53-8"></a>            <span class="dt">colour=</span><span class="st">&quot;white&quot;</span>,</span>
+<span id="cb53-9"><a href="analysis-of-historical-data-1.html#cb53-9"></a>            <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb53-10"><a href="analysis-of-historical-data-1.html#cb53-10"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>period) <span class="op">+</span></span>
+<span id="cb53-11"><a href="analysis-of-historical-data-1.html#cb53-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb53-12"><a href="analysis-of-historical-data-1.html#cb53-12"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent) <span class="op">+</span></span>
+<span id="cb53-13"><a href="analysis-of-historical-data-1.html#cb53-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;perc.(%)&quot;</span>, </span>
+<span id="cb53-14"><a href="analysis-of-historical-data-1.html#cb53-14"></a>       <span class="dt">x =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb53-15"><a href="analysis-of-historical-data-1.html#cb53-15"></a>       <span class="dt">title=</span><span class="st">&quot;Daily period ranges&quot;</span>, </span>
+<span id="cb53-16"><a href="analysis-of-historical-data-1.html#cb53-16"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span>
+<span id="cb53-17"><a href="analysis-of-historical-data-1.html#cb53-17"></a></span>
+<span id="cb53-18"><a href="analysis-of-historical-data-1.html#cb53-18"></a><span class="kw">plot</span>(g14)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="analysis-of-historical-data-1.html#cb54-1"></a>data_age &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_age.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb54-2"><a href="analysis-of-historical-data-1.html#cb54-2"></a></span>
+<span id="cb54-3"><a href="analysis-of-historical-data-1.html#cb54-3"></a><span class="kw">as_tibble</span>(data_age)</span></code></pre></div>
+<pre><code>## # A tibble: 52 x 13
+##    month       mm  year    pid name           up_to_19 age_20_to_29 age_30_to_39
+##    &lt;chr&gt;    &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+##  1 01-Mar-~     3  2017 100001 Training Shop~   0.0785        0.155        0.155
+##  2 01-Apr-~     4  2017 100001 Training Shop~   0.0787        0.158        0.155
+##  3 01-May-~     5  2017 100001 Training Shop~   0.0787        0.155        0.155
+##  4 01-Jun-~     6  2017 100001 Training Shop~   0.0784        0.153        0.153
+##  5 01-Jul-~     7  2017 100001 Training Shop~   0.0784        0.154        0.154
+##  6 01-Aug-~     8  2017 100001 Training Shop~   0.0785        0.155        0.155
+##  7 01-Sep-~     9  2017 100001 Training Shop~   0.0771        0.153        0.153
+##  8 01-Oct-~    10  2017 100001 Training Shop~   0.0771        0.151        0.152
+##  9 01-Nov-~    11  2017 100001 Training Shop~   0.0768        0.152        0.152
+## 10 01-Dec-~    12  2017 100001 Training Shop~   0.0778        0.157        0.154
+## # ... with 42 more rows, and 5 more variables: age_40_to_49 &lt;dbl&gt;,
+## #   age_50_to_59 &lt;dbl&gt;, age_60_to_69 &lt;dbl&gt;, age_70_to_79 &lt;dbl&gt;,
+## #   age_80_and_over &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="analysis-of-historical-data-1.html#cb56-1"></a>data_age &lt;-<span class="st"> </span>data_age <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb56-2"><a href="analysis-of-historical-data-1.html#cb56-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">up_to_19</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_20_to_29</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_30_to_39</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_40_to_49</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_50_to_59</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_60_to_69</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_70_to_79</span><span class="st">`</span>, <span class="st">`</span><span class="dt">age_80_and_over</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;age&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct&quot;</span>)</span>
+<span id="cb56-3"><a href="analysis-of-historical-data-1.html#cb56-3"></a></span>
+<span id="cb56-4"><a href="analysis-of-historical-data-1.html#cb56-4"></a></span>
+<span id="cb56-5"><a href="analysis-of-historical-data-1.html#cb56-5"></a><span class="co"># recoding the factor season</span></span>
+<span id="cb56-6"><a href="analysis-of-historical-data-1.html#cb56-6"></a>data_age &lt;-<span class="st"> </span>data_age <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb56-7"><a href="analysis-of-historical-data-1.html#cb56-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age =</span> <span class="kw">fct_recode</span>(age,</span>
+<span id="cb56-8"><a href="analysis-of-historical-data-1.html#cb56-8"></a>                          <span class="st">&quot;19 and below&quot;</span> =<span class="st"> &quot;up_to_19&quot;</span>,</span>
+<span id="cb56-9"><a href="analysis-of-historical-data-1.html#cb56-9"></a>                          <span class="st">&quot;20-29&quot;</span> =<span class="st"> &quot;age_20_to_29&quot;</span>,</span>
+<span id="cb56-10"><a href="analysis-of-historical-data-1.html#cb56-10"></a>                          <span class="st">&quot;30-39&quot;</span> =<span class="st"> &quot;age_30_to_39&quot;</span>,</span>
+<span id="cb56-11"><a href="analysis-of-historical-data-1.html#cb56-11"></a>                          <span class="st">&quot;40-49&quot;</span> =<span class="st"> &quot;age_40_to_49&quot;</span>,</span>
+<span id="cb56-12"><a href="analysis-of-historical-data-1.html#cb56-12"></a>                          <span class="st">&quot;50-59&quot;</span> =<span class="st"> &quot;age_50_to_59&quot;</span>,</span>
+<span id="cb56-13"><a href="analysis-of-historical-data-1.html#cb56-13"></a>                          <span class="st">&quot;60-69&quot;</span> =<span class="st"> &quot;age_60_to_69&quot;</span>,</span>
+<span id="cb56-14"><a href="analysis-of-historical-data-1.html#cb56-14"></a>                          <span class="st">&quot;70-79&quot;</span> =<span class="st"> &quot;age_70_to_79&quot;</span>,</span>
+<span id="cb56-15"><a href="analysis-of-historical-data-1.html#cb56-15"></a>                          <span class="st">&quot;80 and over&quot;</span> =<span class="st"> &quot;age_80_and_over&quot;</span>)) </span>
+<span id="cb56-16"><a href="analysis-of-historical-data-1.html#cb56-16"></a></span>
+<span id="cb56-17"><a href="analysis-of-historical-data-1.html#cb56-17"></a></span>
+<span id="cb56-18"><a href="analysis-of-historical-data-1.html#cb56-18"></a>data_age &lt;-<span class="st"> </span>data_age <span class="op">%&gt;%</span></span>
+<span id="cb56-19"><a href="analysis-of-historical-data-1.html#cb56-19"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age =</span> <span class="kw">fct_relevel</span>(age, </span>
+<span id="cb56-20"><a href="analysis-of-historical-data-1.html#cb56-20"></a>                           <span class="st">&quot;19 and below&quot;</span>, <span class="st">&quot;20-29&quot;</span>, <span class="st">&quot;30-39&quot;</span>, </span>
+<span id="cb56-21"><a href="analysis-of-historical-data-1.html#cb56-21"></a>                           <span class="st">&quot;40-49&quot;</span>, <span class="st">&quot;50-59&quot;</span>, <span class="st">&quot;60-69&quot;</span>,<span class="st">&quot;70-79&quot;</span>, <span class="st">&quot;80 and over&quot;</span> ))  </span>
+<span id="cb56-22"><a href="analysis-of-historical-data-1.html#cb56-22"></a></span>
+<span id="cb56-23"><a href="analysis-of-historical-data-1.html#cb56-23"></a></span>
+<span id="cb56-24"><a href="analysis-of-historical-data-1.html#cb56-24"></a>g15 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_age , <span class="dt">mapping =</span> <span class="kw">aes</span>(</span>
+<span id="cb56-25"><a href="analysis-of-historical-data-1.html#cb56-25"></a>  <span class="dt">x =</span> year,</span>
+<span id="cb56-26"><a href="analysis-of-historical-data-1.html#cb56-26"></a>  <span class="dt">y =</span> age)) <span class="op">+</span></span>
+<span id="cb56-27"><a href="analysis-of-historical-data-1.html#cb56-27"></a><span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">mapping =</span> <span class="kw">aes</span> (<span class="dt">fill =</span> pct)) <span class="op">+</span></span>
+<span id="cb56-28"><a href="analysis-of-historical-data-1.html#cb56-28"></a><span class="st">  </span><span class="kw">scale_fill_distiller</span>(<span class="dt">labels =</span> percent, <span class="dt">trans =</span> <span class="st">&#39;reverse&#39;</span>) <span class="op">+</span></span>
+<span id="cb56-29"><a href="analysis-of-historical-data-1.html#cb56-29"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb56-30"><a href="analysis-of-historical-data-1.html#cb56-30"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;age range&quot;</span>, </span>
+<span id="cb56-31"><a href="analysis-of-historical-data-1.html#cb56-31"></a>       <span class="dt">x=</span><span class="st">&quot;year&quot;</span>, </span>
+<span id="cb56-32"><a href="analysis-of-historical-data-1.html#cb56-32"></a>       <span class="dt">title=</span><span class="st">&quot;Age frequency&quot;</span>, </span>
+<span id="cb56-33"><a href="analysis-of-historical-data-1.html#cb56-33"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>) </span>
+<span id="cb56-34"><a href="analysis-of-historical-data-1.html#cb56-34"></a></span>
+<span id="cb56-35"><a href="analysis-of-historical-data-1.html#cb56-35"></a>g15 <span class="op">+</span></span>
+<span id="cb56-36"><a href="analysis-of-historical-data-1.html#cb56-36"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>( <span class="dt">label.hjust =</span> <span class="dv">1</span>, <span class="dt">reverse =</span> <span class="ot">TRUE</span>, <span class="dt">title =</span> <span class="st">&quot;scale&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="analysis-of-historical-data-1.html#cb57-1"></a>data_stores &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/visit_stores_per_trip.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb57-2"><a href="analysis-of-historical-data-1.html#cb57-2"></a></span>
+<span id="cb57-3"><a href="analysis-of-historical-data-1.html#cb57-3"></a>data_stores &lt;-<span class="st"> </span>data_stores <span class="op">%&gt;%</span></span>
+<span id="cb57-4"><a href="analysis-of-historical-data-1.html#cb57-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(date)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-5"><a href="analysis-of-historical-data-1.html#cb57-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.character</span>(year))</span>
+<span id="cb57-6"><a href="analysis-of-historical-data-1.html#cb57-6"></a></span>
+<span id="cb57-7"><a href="analysis-of-historical-data-1.html#cb57-7"></a><span class="kw">as_tibble</span>(data_stores)</span></code></pre></div>
+<pre><code>## # A tibble: 198 x 7
+##    date          pid name                     venues    pct month year 
+##    &lt;date&gt;      &lt;int&gt; &lt;chr&gt;                     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 0001-01-20 100001 Training Shopping Centre      1 0.716  Jan   2018 
+##  2 0001-01-20 100001 Training Shopping Centre      4 0.143  Jan   2019 
+##  3 0001-01-20 100001 Training Shopping Centre      3 0.0714 Jan   2019 
+##  4 0001-01-20 100001 Training Shopping Centre      2 0.405  Jan   2019 
+##  5 0001-01-20 100001 Training Shopping Centre      1 0.381  Jan   2019 
+##  6 0001-01-20 100001 Training Shopping Centre      4 0.0143 Jan   2018 
+##  7 0001-01-20 100001 Training Shopping Centre      2 0.214  Jan   2018 
+##  8 0001-01-20 100001 Training Shopping Centre      4 0.0367 Jan   2020 
+##  9 0001-01-20 100001 Training Shopping Centre      3 0.0642 Jan   2020 
+## 10 0001-01-20 100001 Training Shopping Centre      2 0.225  Jan   2020 
+## # ... with 188 more rows</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="analysis-of-historical-data-1.html#cb59-1"></a>data_stores_summary &lt;-<span class="st"> </span>data_stores <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb59-2"><a href="analysis-of-historical-data-1.html#cb59-2"></a><span class="st">  </span><span class="kw">group_by</span>(year, venues) <span class="op">%&gt;%</span></span>
+<span id="cb59-3"><a href="analysis-of-historical-data-1.html#cb59-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pct =</span> <span class="kw">mean</span>(pct)) </span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="analysis-of-historical-data-1.html#cb61-1"></a>g16 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_stores_summary, <span class="kw">aes</span>(<span class="dt">x =</span> venues, <span class="dt">y =</span> pct)) <span class="op">+</span></span>
+<span id="cb61-2"><a href="analysis-of-historical-data-1.html#cb61-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;royalblue4&quot;</span>)<span class="op">+</span></span>
+<span id="cb61-3"><a href="analysis-of-historical-data-1.html#cb61-3"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>percent, <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.8</span>)) <span class="op">+</span></span>
+<span id="cb61-4"><a href="analysis-of-historical-data-1.html#cb61-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb61-5"><a href="analysis-of-historical-data-1.html#cb61-5"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>year) <span class="op">+</span></span>
+<span id="cb61-6"><a href="analysis-of-historical-data-1.html#cb61-6"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>((pct),<span class="fl">0.1</span>),</span>
+<span id="cb61-7"><a href="analysis-of-historical-data-1.html#cb61-7"></a>                <span class="dt">y =</span> pct, </span>
+<span id="cb61-8"><a href="analysis-of-historical-data-1.html#cb61-8"></a>                <span class="dt">group =</span> year,),</span>
+<span id="cb61-9"><a href="analysis-of-historical-data-1.html#cb61-9"></a>            <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb61-10"><a href="analysis-of-historical-data-1.html#cb61-10"></a>            <span class="dt">vjust =</span> <span class="fl">-0.4</span>,</span>
+<span id="cb61-11"><a href="analysis-of-historical-data-1.html#cb61-11"></a>            <span class="dt">colour=</span><span class="st">&quot;royalblue4&quot;</span>,</span>
+<span id="cb61-12"><a href="analysis-of-historical-data-1.html#cb61-12"></a>            <span class="dt">size =</span> <span class="fl">3.5</span>) </span>
+<span id="cb61-13"><a href="analysis-of-historical-data-1.html#cb61-13"></a>g16 <span class="op">+</span></span>
+<span id="cb61-14"><a href="analysis-of-historical-data-1.html#cb61-14"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;perc.(%)&quot;</span>, </span>
+<span id="cb61-15"><a href="analysis-of-historical-data-1.html#cb61-15"></a>       <span class="dt">x=</span><span class="st">&quot;venues&quot;</span>,</span>
+<span id="cb61-16"><a href="analysis-of-historical-data-1.html#cb61-16"></a>       <span class="dt">title=</span><span class="st">&quot;Number of indoor locations visited per trip&quot;</span>,</span>
+<span id="cb61-17"><a href="analysis-of-historical-data-1.html#cb61-17"></a>       <span class="dt">caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="analysis-of-historical-data-1.html#cb62-1"></a>competition &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Laurent/OneDrive - ROCS/VI/competition.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8-BOM&quot;</span>)</span>
+<span id="cb62-2"><a href="analysis-of-historical-data-1.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="analysis-of-historical-data-1.html#cb62-3"></a>competition &lt;-<span class="st"> </span>competition <span class="op">%&gt;%</span></span>
+<span id="cb62-4"><a href="analysis-of-historical-data-1.html#cb62-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.character</span>(year))</span>
+<span id="cb62-5"><a href="analysis-of-historical-data-1.html#cb62-5"></a></span>
+<span id="cb62-6"><a href="analysis-of-historical-data-1.html#cb62-6"></a><span class="kw">as_tibble</span>(competition)</span></code></pre></div>
+<pre><code>## # A tibble: 18 x 5
+##    name                        pid competing_cluster       shared_visitors year 
+##    &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;                             &lt;dbl&gt; &lt;chr&gt;
+##  1 Training Shopping Centre 100001 Birmingham City Centre             63.8 2018 
+##  2 Training Shopping Centre 100001 Birmingham City Centre             61.1 2019 
+##  3 Training Shopping Centre 100001 Birmingham City Centre             64.6 2020 
+##  4 Training Shopping Centre 100001 Broad Street                       31.1 2018 
+##  5 Training Shopping Centre 100001 Broad Street                       32.5 2019 
+##  6 Training Shopping Centre 100001 Broad Street                       31.4 2020 
+##  7 Training Shopping Centre 100001 Grand Central S.Centre             36.6 2018 
+##  8 Training Shopping Centre 100001 Grand Central S.Centre             34.1 2019 
+##  9 Training Shopping Centre 100001 Grand Central S.Centre             37.8 2020 
+## 10 Training Shopping Centre 100001 Jewellery Quarter                  23.4 2018 
+## 11 Training Shopping Centre 100001 Jewellery Quarter                  22.4 2019 
+## 12 Training Shopping Centre 100001 Jewellery Quarter                  20.1 2020 
+## 13 Training Shopping Centre 100001 Stourbridge Town Centre            25.4 2018 
+## 14 Training Shopping Centre 100001 Stourbridge Town Centre            25.6 2019 
+## 15 Training Shopping Centre 100001 Stourbridge Town Centre            23.4 2020 
+## 16 Training Shopping Centre 100001 Wolverhampton City                 27.2 2018 
+## 17 Training Shopping Centre 100001 Wolverhampton City                 26.4 2019 
+## 18 Training Shopping Centre 100001 Wolverhampton City                 29.3 2020</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="analysis-of-historical-data-1.html#cb64-1"></a>competition &lt;-<span class="st"> </span>competition <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb64-2"><a href="analysis-of-historical-data-1.html#cb64-2"></a><span class="st">  </span><span class="kw">filter</span> (year <span class="op">==</span><span class="st"> &quot;2018&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2019&quot;</span> <span class="op">|</span><span class="st"> </span>year <span class="op">==</span><span class="st"> &quot;2020&quot;</span>)</span>
+<span id="cb64-3"><a href="analysis-of-historical-data-1.html#cb64-3"></a></span>
+<span id="cb64-4"><a href="analysis-of-historical-data-1.html#cb64-4"></a></span>
+<span id="cb64-5"><a href="analysis-of-historical-data-1.html#cb64-5"></a>g2_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">newggslopegraph</span>(competition,</span>
+<span id="cb64-6"><a href="analysis-of-historical-data-1.html#cb64-6"></a>                <span class="dt">Times =</span> year,</span>
+<span id="cb64-7"><a href="analysis-of-historical-data-1.html#cb64-7"></a>                <span class="dt">Measurement =</span> shared_visitors,</span>
+<span id="cb64-8"><a href="analysis-of-historical-data-1.html#cb64-8"></a>                <span class="dt">Grouping =</span> competing_cluster,</span>
+<span id="cb64-9"><a href="analysis-of-historical-data-1.html#cb64-9"></a>                <span class="dt">Title =</span> <span class="st">&quot;Top competing clusters&quot;</span>,</span>
+<span id="cb64-10"><a href="analysis-of-historical-data-1.html#cb64-10"></a>                <span class="dt">SubTitle =</span> <span class="st">&quot;Shared visits with identified competition (%)&quot;</span>,</span>
+<span id="cb64-11"><a href="analysis-of-historical-data-1.html#cb64-11"></a>                <span class="dt">Caption =</span> <span class="st">&quot;Source: Visitor Insights&quot;</span>,</span>
+<span id="cb64-12"><a href="analysis-of-historical-data-1.html#cb64-12"></a>                <span class="dt">CaptionJustify =</span> <span class="st">&quot;left&quot;</span>,</span>
+<span id="cb64-13"><a href="analysis-of-historical-data-1.html#cb64-13"></a>                <span class="dt">XTextSize =</span> <span class="dv">18</span>,</span>
+<span id="cb64-14"><a href="analysis-of-historical-data-1.html#cb64-14"></a>                <span class="dt">LineThickness =</span> <span class="fl">1.3</span>,</span>
+<span id="cb64-15"><a href="analysis-of-historical-data-1.html#cb64-15"></a>                <span class="dt">YTextSize =</span> <span class="fl">2.2</span>,</span>
+<span id="cb64-16"><a href="analysis-of-historical-data-1.html#cb64-16"></a>                <span class="dt">ThemeChoice =</span> <span class="st">&quot;econ&quot;</span>,</span>
+<span id="cb64-17"><a href="analysis-of-historical-data-1.html#cb64-17"></a>                <span class="dt">DataLabelPadding =</span> <span class="fl">0.3</span>,</span>
+<span id="cb64-18"><a href="analysis-of-historical-data-1.html#cb64-18"></a>                <span class="dt">DataLabelLineSize =</span> <span class="fl">0.4</span>,</span>
+<span id="cb64-19"><a href="analysis-of-historical-data-1.html#cb64-19"></a>                <span class="dt">DataTextSize =</span> <span class="fl">2.9</span>,</span>
+<span id="cb64-20"><a href="analysis-of-historical-data-1.html#cb64-20"></a>                <span class="dt">DataLabelFillColor =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb64-21"><a href="analysis-of-historical-data-1.html#cb64-21"></a></span>
+<span id="cb64-22"><a href="analysis-of-historical-data-1.html#cb64-22"></a><span class="kw">plot</span>(g2_<span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analysis-of-historical-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

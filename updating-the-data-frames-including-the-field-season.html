@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 updating the data frames including the field season | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail</title>
+  <meta name="description" content="3 updating the data frames including the field season | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 updating the data frames including the field season | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 updating the data frames including the field season | Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visit-frequency.html"/>
+<link rel="next" href="visitor-profile.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#online-version"><i class="fa fa-check"></i>Online Version</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i>About the Author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#location-technologies"><i class="fa fa-check"></i><b>1.2</b> Location Technologies</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#vi-data-infrastructure"><i class="fa fa-check"></i><b>1.3</b> VI Data Infrastructure</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#privacy-compliant-data-collection-and-use"><i class="fa fa-check"></i><b>1.4</b> Privacy-compliant data collection and use</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#representing-and-working-with-data"><i class="fa fa-check"></i><b>1.5</b> Representing and Working with Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="visit-frequency.html"><a href="visit-frequency.html"><i class="fa fa-check"></i><b>2</b> Visit Frequency</a><ul>
+<li class="chapter" data-level="2.1" data-path="visit-frequency.html"><a href="visit-frequency.html#monthly-visits"><i class="fa fa-check"></i><b>2.1</b> Monthly Visits</a></li>
+<li class="chapter" data-level="2.2" data-path="visit-frequency.html"><a href="visit-frequency.html#visits-by-day"><i class="fa fa-check"></i><b>2.2</b> Visits by Day</a></li>
+<li class="chapter" data-level="2.3" data-path="visit-frequency.html"><a href="visit-frequency.html#visits-by-time-intervals"><i class="fa fa-check"></i><b>2.3</b> Visits by Time Intervals</a></li>
+<li class="chapter" data-level="2.4" data-path="visit-frequency.html"><a href="visit-frequency.html#time-ranges"><i class="fa fa-check"></i><b>2.4</b> time ranges</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="updating-the-data-frames-including-the-field-season.html"><a href="updating-the-data-frames-including-the-field-season.html"><i class="fa fa-check"></i><b>3</b> updating the data frames including the field season</a><ul>
+<li class="chapter" data-level="3.1" data-path="updating-the-data-frames-including-the-field-season.html"><a href="updating-the-data-frames-including-the-field-season.html#concatenate"><i class="fa fa-check"></i><b>3.1</b> concatenate</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visitor-profile.html"><a href="visitor-profile.html"><i class="fa fa-check"></i><b>4</b> Visitor Profile</a><ul>
+<li class="chapter" data-level="4.1" data-path="visitor-profile.html"><a href="visitor-profile.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="visitor-profile.html"><a href="visitor-profile.html#data-wrangling-and-visualisation"><i class="fa fa-check"></i><b>4.2</b> Data Wrangling and Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="geospatial-analysis.html"><a href="geospatial-analysis.html"><i class="fa fa-check"></i><b>5</b> Geospatial Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="geospatial-analysis.html"><a href="geospatial-analysis.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="geospatial-analysis.html"><a href="geospatial-analysis.html#data-wrangling-and-visualisation-1"><i class="fa fa-check"></i><b>5.2</b> Data Wrangling and Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="location-portfolio-analysis.html"><a href="location-portfolio-analysis.html"><i class="fa fa-check"></i><b>6</b> Location Portfolio Analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="location-portfolio-analysis.html"><a href="location-portfolio-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="location-portfolio-analysis.html"><a href="location-portfolio-analysis.html#data-wrangling-and-visualisation-2"><i class="fa fa-check"></i><b>6.2</b> Data Wrangling and Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="competition.html"><a href="competition.html"><i class="fa fa-check"></i><b>7</b> Competition</a><ul>
+<li class="chapter" data-level="7.1" data-path="competition.html"><a href="competition.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Understanding Visitors with Social and Geographic Datasets: a tutorial book for local authorities, real estate and retail</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="updating-the-data-frames-including-the-field-season" class="section level1">
+<h1><span class="header-section-number">3</span> updating the data frames including the field season</h1>
+<p>morning &lt;- mutate(morning, period = “Morning (6:00 - 9:59)”)
+mid_morning &lt;- mutate(mid_morning,period = “Mid-morning (10:00 - 11:59)”)
+noon &lt;- mutate(noon,period = “Noon (12:00 - 13:59)”)
+afternoon &lt;- mutate(afternoon, period = “Afternoon (14:00 - 17:59)”)
+evening &lt;- mutate(evening, period = “Evening (18:00 - 21:59)”)
+night &lt;- mutate(night, period = “Night (22:00 - 5:59)”)</p>
+<div id="concatenate" class="section level2">
+<h2><span class="header-section-number">3.1</span> concatenate</h2>
+<p>data_hour_period &lt;- full_join(morning, mid_morning, by = NULL, copy = FALSE)
+data_hour_period2 &lt;- full_join(data_hour_period, noon, by = NULL, copy = FALSE)
+data_hour_period3 &lt;- full_join(data_hour_period2, afternoon, by = NULL, copy = FALSE)
+data_hour_period4 &lt;- full_join(data_hour_period3, evening, by = NULL, copy = FALSE)
+data_hour_period5 &lt;- full_join(data_hour_period4, night, by = NULL, copy = FALSE)</p>
+<p>data_hour &lt;- data_hour_period5 %&gt;%
+mutate(period = fct_relevel(period,
+“Morning (6:00 - 9:59)”, “Mid-morning (10:00 - 11:59)”, “Noon (12:00 - 13:59)”,
+“Afternoon (14:00 - 17:59)”, “Evening (18:00 - 21:59)”, “Night (22:00 - 5:59)”))</p>
+<p>data_hour &lt;- data_hour %&gt;%
+group_by(year, period) %&gt;%
+summarize(pct = sum(pct))</p>
+<p>g14 &lt;- ggplot(data_hour, aes(fill= period, y= pct, x= year)) +
+geom_bar(position=“dodge”, stat=“identity”, colour = “black”, fill = “blue4”) +
+geom_text(aes(label = scales::percent((pct),.2),
+y = pct,
+group = year,),
+position = position_dodge(width = 0.9),
+vjust = 1.5,
+colour=“white”,
+size = 3) +
+facet_wrap(~period) +
+theme(legend.position=“none”) +
+scale_y_continuous(labels=percent) +
+labs(y = “perc.(%)”,
+x = “year”,
+title=“Daily period ranges”,
+caption = “Source: Visitor Insights”)</p>
+<p>plot(g14)</p>
+<pre><code>
+
+
+
+&lt;!--chapter:end:02-Chapter2.Rmd--&gt;
+
+
+
+# Visitor Behaviour
+***
+
+
+## Introduction
+
+
+## Data Wrangling and Visualisation
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;http://rmarkdown.rstudio.com&gt;.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+```r
+summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<p>You can also embed plots, for example:</p>
+<p><img src="_main_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visit-frequency.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visitor-profile.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
